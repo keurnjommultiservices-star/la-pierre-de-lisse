@@ -133,6 +133,26 @@
   .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:400; margin-top:12px;}
   .rule{width:44px; height:1px; background:var(--brass); margin:0 0 14px;}
 
+  /* ---------- Défilement photos ---------- */
+  .photo-marquee-section{background:var(--ivory); overflow:hidden; padding:36px 0;}
+  .photo-marquee{width:100%; overflow:hidden; position:relative;}
+  .photo-marquee-track{
+    display:flex; gap:16px; width:max-content;
+    animation:marquee-scroll 45s linear infinite;
+  }
+  .photo-marquee:hover .photo-marquee-track{animation-play-state:paused;}
+  .photo-marquee-track img{
+    height:200px; width:290px; object-fit:cover; border-radius:2px; flex-shrink:0;
+    filter:saturate(1.02);
+  }
+  @keyframes marquee-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (max-width:760px){
+    .photo-marquee-track img{ height:150px; width:220px; }
+  }
+
   /* ---------- Intro ---------- */
   .intro{background:var(--ivory);}
   .intro-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
@@ -383,6 +403,12 @@
       <a class="btn-solid" href="#reserver">Vérifier les disponibilités</a>
       <a class="btn-ghost" href="#chambres">Découvrir les chambres</a>
     </div>
+  </div>
+</section>
+
+<section class="photo-marquee-section" id="marquee-section" style="display:none;">
+  <div class="photo-marquee">
+    <div class="photo-marquee-track" id="marquee-track"></div>
   </div>
 </section>
 
@@ -854,6 +880,27 @@
           const style = g.image ? `style="background-image:url('${g.image}'); background-size:cover; background-position:center;"` : '';
           return `<div class="g-item ${g.image ? '' : cls}" ${style}><span>${g.legende || ''}</span></div>`;
         }).join('');
+      }
+
+      // Défilement de photos aléatoires sur la page d'accueil
+      const marqueeTrack = document.getElementById('marquee-track');
+      if (marqueeTrack) {
+        const photos = (Array.isArray(data.galerie) ? data.galerie : [])
+          .map(g => g.image)
+          .filter(Boolean);
+        if (photos.length) {
+          // Mélange aléatoire (Fisher-Yates)
+          for (let i = photos.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [photos[i], photos[j]] = [photos[j], photos[i]];
+          }
+          // Dupliqué pour un défilement en boucle continue
+          const doubled = photos.concat(photos);
+          marqueeTrack.innerHTML = doubled.map(src => `<img src="${src}" alt="La Pierre de Lisse" loading="lazy">`).join('');
+          document.getElementById('marquee-section').style.display = '';
+        } else {
+          marqueeTrack.closest('.photo-marquee-section').style.display = 'none';
+        }
       }
 
       // Avis clients
