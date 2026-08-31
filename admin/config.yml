@@ -32,8 +32,12 @@ collections:
             name: "hero_text"
             widget: "text"
 
-          - label: "Texte de présentation (section « La maison »)"
+          - label: "Texte de présentation (section « La maison ») — 1er paragraphe"
             name: "intro_text"
+            widget: "text"
+
+          - label: "Texte de présentation (section « La maison ») — 2e paragraphe"
+            name: "intro_text_2"
             widget: "text"
 
           - label: "Slogan du pied de page"

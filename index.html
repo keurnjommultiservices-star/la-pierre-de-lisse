@@ -393,11 +393,12 @@
       <h2 style="font-family:'Fraunces',serif; font-size:1.9rem; margin-top:10px; font-weight:400;">Une adresse pensée comme une maison, tenue comme un hôtel.</h2>
     </div>
     <div class="reveal">
-      <p id="intro-text">La Pierre de Lisse occupe une parcelle privée sur la côte de Popenguine-Ndayane, à proximité de Toubab Dialaw. Dix-huit chambres et suites, une piscine à débordement face à l'océan, et une table ouverte sur la terrasse dès le lever du jour. Ici, le service se fait discret : on vous connaît dès la deuxième nuit.</p>
+      <p id="intro-text">La Pierre de Lisse propose 28 cases climatisées, individuelles ou familiales, aux murs en pierre de taille et toits de chaume, disséminées dans un grand jardin exotique de quatre hectares arboré et fleuri — chacune avec sa terrasse privative et un accès wifi. De la chambre simple à la suite familiale, plusieurs formules sont possibles.</p>
+      <p id="intro-text-2" style="margin-top:14px; color:#3a4244; font-size:1.02rem; max-width:52ch;">Une nouvelle bâtisse récemment érigée propose 60 chambres modernes, dont 6 suites, ainsi qu'une salle polyvalente — un cadre idéal pour séminaires, ateliers, colonies de vacances, mariages et autres cérémonies.</p>
       <div class="intro-figures">
-        <div class="fig"><div class="num mono">18</div><div class="lab">chambres &amp; suites</div></div>
-        <div class="fig"><div class="num mono">4.9</div><div class="lab">avis clients</div></div>
-        <div class="fig"><div class="num mono">2018</div><div class="lab">ouverture</div></div>
+        <div class="fig"><div class="num mono">88</div><div class="lab">chambres &amp; cases</div></div>
+        <div class="fig"><div class="num mono">4 ha</div><div class="lab">jardin exotique</div></div>
+        <div class="fig"><div class="num mono">6</div><div class="lab">suites</div></div>
       </div>
     </div>
   </div>
@@ -482,8 +483,8 @@
       </div>
       <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="color:var(--teal-deep);">03</div>
-        <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Salle de réunion</h3>
-        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Un espace conférence pour séminaires et événements professionnels.</p>
+        <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Salle polyvalente</h3>
+        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Un espace idéal pour séminaires, ateliers, colonies de vacances, mariages et cérémonies.</p>
       </div>
       <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="color:var(--teal-deep);">04</div>
@@ -716,7 +717,7 @@
     <div>
       <div class="logo" style="margin-bottom:6px;">La Pierre <span>de Lisse</span></div>
       <p id="foot-tagline" style="font-family:'Fraunces',serif; font-style:italic; color:var(--brass-light); font-size:0.92rem; margin-bottom:14px;">La brousse a son confort.</p>
-      <p id="foot-address" style="max-width:32ch;">Popenguine-Ndayane, Petite Côte, Sénégal — à proximité de Toubab Dialaw. Hôtel-résidence de 18 chambres face à l'Atlantique.</p>
+      <p id="foot-address" style="max-width:32ch;">Popenguine-Ndayane, Petite Côte, Sénégal — à proximité de Toubab Dialaw. Hôtel-résidence de 28 cases et 60 chambres face à l'Atlantique.</p>
     </div>
     <div>
       <h4>Contact</h4>
@@ -787,6 +788,7 @@
       if (data.hero_title_em) document.getElementById('hero-title-em').textContent = data.hero_title_em;
       if (data.hero_text) document.getElementById('hero-text').textContent = data.hero_text;
       if (data.intro_text) document.getElementById('intro-text').textContent = data.intro_text;
+      if (data.intro_text_2) document.getElementById('intro-text-2').textContent = data.intro_text_2;
       if (data.footer_tagline) document.getElementById('foot-tagline').textContent = data.footer_tagline;
 
       // Coordonnées
