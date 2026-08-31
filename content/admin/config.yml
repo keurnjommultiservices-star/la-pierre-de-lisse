@@ -1,0 +1,129 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Interface en français
+locale: "fr"
+
+media_folder: "content/images/uploads"
+public_folder: "content/images/uploads"
+
+collections:
+  - name: "site"
+    label: "Contenu du site"
+    files:
+      - file: "content/site.json"
+        label: "La Pierre de Lisse"
+        name: "site"
+        fields:
+          - label: "Accroche du haut de page"
+            name: "hero_eyebrow"
+            widget: "string"
+
+          - label: "Titre principal — 1ère ligne"
+            name: "hero_title_line1"
+            widget: "string"
+
+          - label: "Titre principal — 2e ligne (en italique)"
+            name: "hero_title_em"
+            widget: "string"
+
+          - label: "Texte sous le titre principal"
+            name: "hero_text"
+            widget: "text"
+
+          - label: "Texte de présentation (section « La maison ») — 1er paragraphe"
+            name: "intro_text"
+            widget: "text"
+
+          - label: "Texte de présentation (section « La maison ») — 2e paragraphe"
+            name: "intro_text_2"
+            widget: "text"
+
+          - label: "Slogan du pied de page"
+            name: "footer_tagline"
+            widget: "string"
+
+          - label: "Coordonnées"
+            name: "contact"
+            widget: "object"
+            fields:
+              - label: "Numéro WhatsApp (format 221XXXXXXXXX, sans espaces ni +)"
+                name: "whatsapp"
+                widget: "string"
+              - label: "Téléphone fixe (affiché tel quel)"
+                name: "tel_fixe"
+                widget: "string"
+              - label: "Email"
+                name: "email"
+                widget: "string"
+              - label: "Adresse / localisation"
+                name: "adresse"
+                widget: "text"
+
+          - label: "Tarifs"
+            name: "tarifs"
+            widget: "list"
+            summary: "{{fields.nom}} — {{fields.pc_adulte}} F / {{fields.dp_adulte}} F"
+            fields:
+              - label: "Nom de la formule"
+                name: "nom"
+                widget: "string"
+              - label: "Note (ex : hors boisson)"
+                name: "note"
+                widget: "string"
+                default: "Tarifs par personne et par jour, hors boisson."
+              - label: "Pension complète — adulte (F CFA)"
+                name: "pc_adulte"
+                widget: "number"
+                value_type: "int"
+              - label: "Pension complète — enfant -12 ans (F CFA)"
+                name: "pc_enfant"
+                widget: "number"
+                value_type: "int"
+              - label: "Demi-pension — adulte (F CFA)"
+                name: "dp_adulte"
+                widget: "number"
+                value_type: "int"
+              - label: "Demi-pension — enfant -12 ans (F CFA)"
+                name: "dp_enfant"
+                widget: "number"
+                value_type: "int"
+
+          - label: "Galerie photos"
+            name: "galerie"
+            widget: "list"
+            summary: "{{fields.legende}}"
+            fields:
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                required: false
+              - label: "Légende"
+                name: "legende"
+                widget: "string"
+
+          - label: "Note moyenne affichée (sur 5)"
+            name: "avis_note_moyenne"
+            widget: "number"
+            value_type: "float"
+            hint: "Ex : 4.9"
+
+          - label: "Avis clients"
+            name: "avis"
+            widget: "list"
+            summary: "{{fields.nom}} — {{fields.note}}/5"
+            fields:
+              - label: "Nom du client (+ type de séjour, ex : « Aïcha D. — séjour en famille »)"
+                name: "nom"
+                widget: "string"
+              - label: "Note (1 à 5)"
+                name: "note"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                max: 5
+                default: 5
+              - label: "Texte de l'avis"
+                name: "texte"
+                widget: "text"
