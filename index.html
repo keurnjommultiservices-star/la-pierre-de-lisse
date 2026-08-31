@@ -16,6 +16,7 @@
     --brass-light:#d9b877;
     --ivory:#f5f1e6;
     --sand:#e7dcc4;
+    --green-bold:#1f7a3d;
     --line: rgba(245,241,230,0.16);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -255,6 +256,10 @@
 
   /* ---------- Infos pratiques ---------- */
   .infos{background:var(--ivory);}
+  .infos .section-head .eyebrow{
+    display:inline-block; font-size:0.95rem; font-weight:700;
+    background:var(--green-bold); color:#fff; padding:8px 18px; border-radius:3px;
+  }
   .infos-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;}
   @media (max-width:900px){ .infos-grid{grid-template-columns:1fr;} }
   .infos-card{border:1px solid #e6e0d2; border-radius:2px; background:#fff; padding:32px;}
@@ -262,7 +267,10 @@
   .infos-text p:last-child{margin-bottom:0;}
   .infos-group{margin-bottom:26px;}
   .infos-group:last-child{margin-bottom:0;}
-  .infos-group h4{font-size:0.98rem; font-weight:500; margin-bottom:14px;}
+  .infos-group h4{
+    display:inline-block; font-size:1rem; font-weight:700; margin-bottom:16px;
+    background:var(--green-bold); color:#fff; padding:7px 16px; border-radius:3px;
+  }
   .infos-list{display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; list-style:none;}
   @media (max-width:480px){ .infos-list{grid-template-columns:1fr;} }
   .infos-list li{
