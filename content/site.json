@@ -1,0 +1,40 @@
+{
+  "hero_eyebrow": "Popenguine-Ndayane · Petite Côte · Sénégal",
+  "hero_title_line1": "La brousse a",
+  "hero_title_em": "son confort.",
+  "hero_text": "La Pierre de Lisse, hôtel-résidence posé sur la Petite Côte, à quelques minutes de Toubab Dialaw, où chaque matinée commence face à l'océan.",
+  "intro_text": "La Pierre de Lisse occupe une parcelle privée sur la côte de Popenguine-Ndayane, à proximité de Toubab Dialaw. Dix-huit chambres et suites, une piscine à débordement face à l'océan, et une table ouverte sur la terrasse dès le lever du jour. Ici, le service se fait discret : on vous connaît dès la deuxième nuit.",
+  "footer_tagline": "La brousse a son confort.",
+  "contact": {
+    "whatsapp": "221772465628",
+    "tel_fixe": "+221 33 957 71 48",
+    "email": "reservation@lapierredelisse-demo.sn",
+    "adresse": "Popenguine-Ndayane, Petite Côte, Sénégal — à proximité de Toubab Dialaw. Hôtel-résidence de 18 chambres face à l'Atlantique."
+  },
+  "tarifs": [
+    {
+      "nom": "Bungalow Standard",
+      "note": "Tarifs par personne et par jour, hors boisson.",
+      "pc_adulte": 48000,
+      "pc_enfant": 30000,
+      "dp_adulte": 40000,
+      "dp_enfant": 26000
+    },
+    {
+      "nom": "Bungalow Grand Confort",
+      "note": "Tarifs par personne et par jour, hors boisson.",
+      "pc_adulte": 51000,
+      "pc_enfant": 35000,
+      "dp_adulte": 43000,
+      "dp_enfant": 30000
+    }
+  ],
+  "galerie": [
+    { "legende": "Piscine à débordement", "image": "" },
+    { "legende": "Bungalow Grand Confort", "image": "" },
+    { "legende": "Terrasse au coucher du soleil", "image": "" },
+    { "legende": "Table du chef", "image": "" },
+    { "legende": "Bungalow Standard", "image": "" },
+    { "legende": "Accès plage privé", "image": "" }
+  ]
+}
