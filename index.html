@@ -103,8 +103,9 @@
     position:relative; z-index:2; padding:0 clamp(20px,5vw,64px) 90px; width:100%;
   }
   .hero-eyebrow{
-    font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase;
-    color:var(--sand); opacity:0.9; margin-bottom:18px;
+    display:inline-block; font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:#fff; opacity:1; margin-bottom:18px; font-weight:700;
+    background:var(--green-bold); padding:8px 18px; border-radius:3px;
   }
   .hero h1{
     font-size:clamp(2.4rem, 6vw, 4.6rem); font-weight:400; max-width:14ch; line-height:1.04;
@@ -112,7 +113,8 @@
   }
   .hero h1 em{font-style:italic; color:var(--brass-light);}
   .hero p{
-    margin-top:22px; max-width:44ch; font-size:1.05rem; color:var(--sand); font-weight:300;
+    display:inline-block; margin-top:22px; max-width:44ch; font-size:1.02rem; color:#fff; font-weight:500;
+    background:var(--green-bold); padding:14px 20px; border-radius:3px; line-height:1.5;
   }
   .hero-actions{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
   .btn-ghost{
@@ -387,7 +389,7 @@
 <section class="intro">
   <div class="wrap intro-grid">
     <div class="reveal">
-      <div class="eyebrow">La maison</div>
+      <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:8px 18px; border-radius:3px; font-weight:700;">La maison</div>
       <h2 style="font-family:'Fraunces',serif; font-size:1.9rem; margin-top:10px; font-weight:400;">Une adresse pensée comme une maison, tenue comme un hôtel.</h2>
     </div>
     <div class="reveal">
