@@ -470,7 +470,7 @@
       <h2>Vérifiez les disponibilités.</h2>
     </div>
     <div class="booking-box reveal">
-      <form class="booking-form" onsubmit="event.preventDefault(); alert('Démo — à connecter à votre moteur de réservation.');">
+      <form class="booking-form" id="booking-form">
         <div class="field">
           <label for="in">Arrivée</label>
           <input type="date" id="in" required>
@@ -496,10 +496,10 @@
           </select>
         </div>
         <div class="field bsub">
-          <button type="submit">Vérifier</button>
+          <button type="submit">Vérifier sur WhatsApp</button>
         </div>
       </form>
-      <p class="booking-note">Moteur de réservation de démonstration — se branche sur votre système de disponibilités et de paiement réel.</p>
+      <p class="booking-note">En cliquant sur « Vérifier sur WhatsApp », vos dates, le nombre de voyageurs et la chambre choisie sont envoyés directement à notre équipe pour confirmation.</p>
     </div>
   </div>
 </section>
@@ -589,6 +589,7 @@
   // ---- Contenu géré depuis l'admin (content/site.json) ----
   const fmtF = (n) => Number(n).toLocaleString('fr-FR').replace(/\u202f|,/g, ' ') + ' F';
   const waLink = (num, text) => `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
+  let currentWaNumber = '221772465628'; // valeur par défaut, écrasée par site.json si disponible
 
   fetch('content/site.json', {cache:'no-store'})
     .then(r => r.ok ? r.json() : null)
@@ -606,6 +607,7 @@
       // Coordonnées
       const c = data.contact || {};
       if (c.whatsapp) {
+        currentWaNumber = c.whatsapp;
         document.getElementById('nav-wa-cta').href = waLink(c.whatsapp, `Bonjour, je souhaite réserver une chambre à La Pierre de Lisse`);
         document.getElementById('wa-band-btn').href = waLink(c.whatsapp, `Bonjour, je souhaite des informations sur La Pierre de Lisse`);
         const footWa = document.getElementById('foot-wa');
@@ -668,6 +670,22 @@
       }
     })
     .catch(() => { /* le site garde son contenu par défaut si le fichier est indisponible */ });
+
+  // Formulaire de réservation → message WhatsApp pré-rempli
+  const formatDateFr = (isoStr) => {
+    if (!isoStr) return '';
+    const [y, m, d] = isoStr.split('-');
+    return `${d}/${m}/${y}`;
+  };
+  document.getElementById('booking-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const arrivee = formatDateFr(document.getElementById('in').value);
+    const depart = formatDateFr(document.getElementById('out').value);
+    const voyageurs = document.getElementById('guests').value;
+    const chambre = document.getElementById('room').value;
+    const message = `Bonjour, je souhaite vérifier une disponibilité à La Pierre de Lisse :\n- Arrivée : ${arrivee}\n- Départ : ${depart}\n- Voyageurs : ${voyageurs}\n- Chambre souhaitée : ${chambre}`;
+    window.location.href = waLink(currentWaNumber, message);
+  });
 </script>
 
 </body>
