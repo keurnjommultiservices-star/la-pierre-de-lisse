@@ -255,6 +255,27 @@
   .comm-cell p{color:#6b6357; font-size:0.9rem; max-width:34ch;}
   .comm-cell.dark p{color:var(--teal-mist);}
 
+  /* ---------- Avis ---------- */
+  .avis{background:#fff;}
+  .avis-summary{
+    border:1px solid #e6e0d2; border-radius:2px; padding:26px 30px; margin-bottom:28px;
+    display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .avis-summary h3{font-size:1.1rem; font-weight:500;}
+  .avis-summary .stars{color:var(--brass); letter-spacing:0.1em; margin-top:4px; display:inline-block;}
+  .avis-summary .score{font-family:'Space Mono',monospace; color:#6b6357; font-size:0.85rem; margin-left:8px;}
+  .avis-cta{
+    background:var(--ink); color:#fff; padding:12px 24px; border-radius:999px; font-size:0.88rem; font-weight:600;
+    white-space:nowrap;
+  }
+  .avis-cta:hover{background:var(--teal-deep);}
+  .avis-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:900px){ .avis-grid{grid-template-columns:1fr;} }
+  .avis-card{border:1px solid #e6e0d2; border-radius:2px; padding:24px;}
+  .avis-card .stars{color:var(--brass); letter-spacing:0.1em; font-size:0.9rem;}
+  .avis-card p{color:#3a4244; font-size:0.92rem; margin-top:12px; font-style:italic;}
+  .avis-card .who{margin-top:16px; font-size:0.82rem; color:#8a8172;}
+
   /* ---------- Infos pratiques ---------- */
   .infos{background:var(--ivory);}
   .section-head .eyebrow{
@@ -338,6 +359,7 @@
     <div class="nav-links">
       <a href="#chambres">Chambres</a>
       <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
       <a href="#reserver">Réserver</a>
       <a href="#contact">Contact</a>
       <a class="cta" id="nav-wa-cta" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20une%20chambre%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Réserver sur WhatsApp</a>
@@ -562,6 +584,43 @@
       <div class="big">100%</div>
       <p>de votre réservation reste entre nous — pour un accueil qui vous ressemble.</p>
     </div>
+  </div>
+</section>
+
+<section class="avis" id="avis">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Avis clients</div>
+      <div class="rule"></div>
+      <h2>Ce que disent nos hôtes.</h2>
+    </div>
+
+    <div class="avis-summary reveal">
+      <div>
+        <h3>Avis mentionnant les chambres et le séjour</h3>
+        <span class="stars">★★★★★</span><span class="score">4.9 / 5 — à partir des avis reçus</span>
+      </div>
+      <a class="avis-cta" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20partager%20mon%20avis%20sur%20mon%20s%C3%A9jour%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Écrire un avis</a>
+    </div>
+
+    <div class="avis-grid">
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>« Un accueil très chaleureux, la piscine et la plage à deux pas, on s'est sentis chez nous du premier au dernier jour. »</p>
+        <div class="who">Aïcha D. — séjour en famille</div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>« Cadre magnifique, chambres propres et bien climatisées, et le restaurant est excellent. On reviendra ! »</p>
+        <div class="who">Moussa K. — séjour en couple</div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="stars">★★★★☆</div>
+        <p>« Très bon rapport qualité-prix pour la Petite Côte, personnel disponible et à l'écoute. »</p>
+        <div class="who">Fatou S. — voyage entre amis</div>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:0.8rem; color:#8a8172;">Avis d'exemple — à remplacer par vos vrais avis clients.</p>
   </div>
 </section>
 
