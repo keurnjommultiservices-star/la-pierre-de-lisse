@@ -81,19 +81,18 @@
   .hero{
     position:relative; min-height:100svh; display:flex; align-items:flex-end;
     background:
-      radial-gradient(120% 70% at 50% 0%, rgba(185,146,79,0.35), transparent 60%),
+      linear-gradient(180deg, rgba(16,24,27,0.25) 0%, rgba(16,24,27,0.35) 45%, rgba(16,24,27,0.82) 100%),
+      url('content/images/uploads/hero-vue-de-haut.jpg') center 30% / cover no-repeat,
       linear-gradient(180deg, #142a2c 0%, #1e4547 42%, #2a5b58 62%, #b9924f 100%);
     overflow:hidden;
     color:var(--ivory);
   }
-  .hero::before{ /* sun */
-    content:''; position:absolute; left:50%; top:38%; width:120px; height:120px; transform:translate(-50%,-50%);
-    background:radial-gradient(circle, #f5e2b8 0%, #d9b877 55%, rgba(217,184,119,0) 75%);
-    border-radius:50%;
-    filter: blur(0.5px);
+  .hero::before{ /* sun — masqué au profit de la photo réelle */
+    content:''; display:none;
   }
   .horizon{
     position:absolute; left:0; right:0; top:58%; height:1px; background:rgba(245,241,230,0.55);
+    display:none;
   }
   .hero-waves{
     position:absolute; left:0; right:0; bottom:0; width:100%; opacity:0.9;
@@ -440,7 +439,7 @@
       <h2>La baie, la lumière, la table.</h2>
     </div>
     <div class="gallery-grid reveal" id="gallery-grid">
-      <div class="g-item g1"><span>Piscine à débordement</span></div>
+      <div class="g-item g1" style="background-image:url('content/images/uploads/hero-vue-de-haut.jpg'); background-size:cover; background-position:center;"><span>Piscine à débordement</span></div>
       <div class="g-item g2"><span>Bungalow Grand Confort</span></div>
       <div class="g-item g3"><span>Terrasse au coucher du soleil</span></div>
       <div class="g-item g4"><span>Table du chef</span></div>
