@@ -253,6 +253,36 @@
   .comm-cell p{color:#6b6357; font-size:0.9rem; max-width:34ch;}
   .comm-cell.dark p{color:var(--teal-mist);}
 
+  /* ---------- Infos pratiques ---------- */
+  .infos{background:var(--ivory);}
+  .infos-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;}
+  @media (max-width:900px){ .infos-grid{grid-template-columns:1fr;} }
+  .infos-card{border:1px solid #e6e0d2; border-radius:2px; background:#fff; padding:32px;}
+  .infos-text p{color:#3a4244; font-size:0.98rem; margin-bottom:16px;}
+  .infos-text p:last-child{margin-bottom:0;}
+  .infos-group{margin-bottom:26px;}
+  .infos-group:last-child{margin-bottom:0;}
+  .infos-group h4{font-size:0.98rem; font-weight:500; margin-bottom:14px;}
+  .infos-list{display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; list-style:none;}
+  @media (max-width:480px){ .infos-list{grid-template-columns:1fr;} }
+  .infos-list li{
+    font-size:0.88rem; color:#3a4244; padding-left:16px; position:relative;
+  }
+  .infos-list li::before{
+    content:''; position:absolute; left:0; top:0.55em; width:5px; height:5px; border-radius:50%; background:var(--brass);
+  }
+  .infos-facts{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:6px;}
+  @media (max-width:480px){ .infos-facts{grid-template-columns:1fr;} }
+  .infos-facts .eyebrow{margin-bottom:6px;}
+  .infos-facts .stars{color:var(--brass); letter-spacing:0.1em;}
+  .infos-facts p{font-size:0.9rem; color:#3a4244;}
+  .access-item{padding:14px 0; border-top:1px solid #eee6d5;}
+  .access-item:first-child{border-top:none; padding-top:0;}
+  .access-name{font-size:0.92rem; font-weight:500; display:flex; align-items:baseline; gap:8px;}
+  .access-name .ico{color:var(--brass); font-size:0.8rem;}
+  .access-dist{font-size:0.85rem; color:#8a8172; margin-top:4px; display:flex; align-items:baseline; gap:8px;}
+  .access-dist .ico{color:#b3a893; font-size:0.8rem;}
+
   /* ---------- Footer ---------- */
   footer{background:var(--ink); color:var(--sand); padding:64px 0 28px;}
   .foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px;}
@@ -522,6 +552,91 @@
       <div class="eyebrow">La Pierre de Lisse, en direct</div>
       <div class="big">100%</div>
       <p>de votre réservation reste entre nous — pour un accueil qui vous ressemble.</p>
+    </div>
+  </div>
+</section>
+
+<section class="infos" id="infos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Infos pratiques</div>
+      <div class="rule"></div>
+      <h2>Tout ce qu'il faut savoir avant votre séjour.</h2>
+    </div>
+    <div class="infos-grid">
+      <div class="infos-card infos-text reveal">
+        <p>Tout le monde a besoin d'un cocon douillet où se reposer. La Pierre de Lisse est l'établissement parfait pour les voyageurs souhaitant se ressourcer lors de leur séjour à Popenguine.</p>
+        <p>La Pierre de Lisse est un petit hôtel familial proposant des chambres équipées d'une climatisation. Vous pouvez également compter sur un wi-fi pour rester connecté tout au long de votre séjour.</p>
+        <p>La piscine et le restaurant ne sont pas étrangers à sa grande popularité auprès des voyageurs visitant Popenguine.</p>
+        <p>Vous aimez les restaurants français ? Cela tombe bien, car La Pierre de Lisse est situé à deux pas de restaurants comme L'Écho Côtier et Le Balafon Café.</p>
+        <p>La Pierre de Lisse rendra votre séjour à Popenguine inoubliable.</p>
+      </div>
+      <div class="infos-card reveal">
+        <div class="infos-group">
+          <h4>Équipements de l'établissement</h4>
+          <ul class="infos-list">
+            <li>Parking gratuit</li>
+            <li>Internet gratuit</li>
+            <li>Piscine</li>
+            <li>Bar / lounge</li>
+            <li>Plage</li>
+            <li>Randonnée</li>
+            <li>Chaînes de télévision pour enfants</li>
+            <li>Piscine pour enfants</li>
+          </ul>
+        </div>
+        <div class="infos-group">
+          <h4>Équipements de la chambre</h4>
+          <ul class="infos-list">
+            <li>Rideaux occultants</li>
+            <li>Climatisation</li>
+            <li>Bureau</li>
+            <li>Eau en bouteille</li>
+            <li>Penderie</li>
+            <li>TV par câble / satellite</li>
+            <li>Télévision à écran plat</li>
+            <li>Douche à l'italienne</li>
+          </ul>
+        </div>
+        <div class="infos-group">
+          <h4>Types de chambre</h4>
+          <ul class="infos-list">
+            <li>Vue sur l'océan</li>
+            <li>Vue sur la piscine</li>
+            <li>Chambres non-fumeurs</li>
+            <li>Suites</li>
+            <li>Chambres familiales</li>
+          </ul>
+        </div>
+        <div class="infos-group">
+          <h4>Bon à savoir</h4>
+          <div class="infos-facts">
+            <div>
+              <div class="eyebrow">Catégorie d'hôtel</div>
+              <p class="stars">★★★</p>
+            </div>
+            <div>
+              <div class="eyebrow">Style d'hôtel</div>
+              <p>Intermédiaire, charmant</p>
+            </div>
+            <div>
+              <div class="eyebrow">Langues parlées</div>
+              <p>Français, anglais, allemand</p>
+            </div>
+          </div>
+        </div>
+        <div class="infos-group" style="margin-bottom:0;">
+          <h4>Accès</h4>
+          <div class="access-item">
+            <div class="access-name"><span class="ico">✈</span> Aéroport Léopold Sédar Senghor</div>
+            <div class="access-dist"><span class="ico">🚗</span> 41,9 km</div>
+          </div>
+          <div class="access-item">
+            <div class="access-name"><span class="ico">✈</span> Aéroport international Blaise Diagne</div>
+            <div class="access-dist"><span class="ico">🚗</span> 12,7 km</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
