@@ -98,3 +98,28 @@ collections:
               - label: "Légende"
                 name: "legende"
                 widget: "string"
+
+          - label: "Note moyenne affichée (sur 5)"
+            name: "avis_note_moyenne"
+            widget: "number"
+            value_type: "float"
+            hint: "Ex : 4.9"
+
+          - label: "Avis clients"
+            name: "avis"
+            widget: "list"
+            summary: "{{fields.nom}} — {{fields.note}}/5"
+            fields:
+              - label: "Nom du client (+ type de séjour, ex : « Aïcha D. — séjour en famille »)"
+                name: "nom"
+                widget: "string"
+              - label: "Note (1 à 5)"
+                name: "note"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                max: 5
+                default: 5
+              - label: "Texte de l'avis"
+                name: "texte"
+                widget: "text"

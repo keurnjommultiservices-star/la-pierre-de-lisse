@@ -598,12 +598,12 @@
     <div class="avis-summary reveal">
       <div>
         <h3>Avis mentionnant les chambres et le séjour</h3>
-        <span class="stars">★★★★★</span><span class="score">4.9 / 5 — à partir des avis reçus</span>
+        <span class="stars" id="avis-note-stars">★★★★★</span><span class="score" id="avis-note-text">4.9 / 5 — à partir des avis reçus</span>
       </div>
-      <a class="avis-cta" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20partager%20mon%20avis%20sur%20mon%20s%C3%A9jour%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Écrire un avis</a>
+      <a class="avis-cta" id="avis-cta-btn" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20partager%20mon%20avis%20sur%20mon%20s%C3%A9jour%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Écrire un avis</a>
     </div>
 
-    <div class="avis-grid">
+    <div class="avis-grid" id="avis-grid">
       <div class="avis-card reveal">
         <div class="stars">★★★★★</div>
         <p>« Un accueil très chaleureux, la piscine et la plage à deux pas, on s'est sentis chez nous du premier au dernier jour. »</p>
@@ -620,7 +620,7 @@
         <div class="who">Fatou S. — voyage entre amis</div>
       </div>
     </div>
-    <p style="margin-top:20px; font-size:0.8rem; color:#8a8172;">Avis d'exemple — à remplacer par vos vrais avis clients.</p>
+    <p style="margin-top:20px; font-size:0.8rem; color:#8a8172;" id="avis-fallback-note">Avis d'exemple — à remplacer par vos vrais avis clients.</p>
   </div>
 </section>
 
@@ -850,6 +850,24 @@
           const style = g.image ? `style="background-image:url('${g.image}'); background-size:cover; background-position:center;"` : '';
           return `<div class="g-item ${g.image ? '' : cls}" ${style}><span>${g.legende || ''}</span></div>`;
         }).join('');
+      }
+
+      // Avis clients
+      const starsStr = (n) => '★'.repeat(Math.round(n||5)) + '☆'.repeat(5 - Math.round(n||5));
+      if (data.avis_note_moyenne) {
+        document.getElementById('avis-note-stars').textContent = starsStr(data.avis_note_moyenne);
+        document.getElementById('avis-note-text').textContent = `${data.avis_note_moyenne} / 5 — à partir des avis reçus`;
+      }
+      if (Array.isArray(data.avis) && data.avis.length) {
+        document.getElementById('avis-grid').innerHTML = data.avis.map(a => `
+          <div class="avis-card reveal in">
+            <div class="stars">${starsStr(a.note)}</div>
+            <p>« ${a.texte || ''} »</p>
+            <div class="who">${a.nom || ''}</div>
+          </div>
+        `).join('');
+        const note = document.getElementById('avis-fallback-note');
+        if (note) note.style.display = 'none';
       }
     })
     .catch(() => { /* le site garde son contenu par défaut si le fichier est indisponible */ });

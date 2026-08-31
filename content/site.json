@@ -36,5 +36,11 @@
     { "legende": "Table du chef", "image": "" },
     { "legende": "Bungalow Standard", "image": "" },
     { "legende": "Accès plage privé", "image": "" }
+  ],
+  "avis_note_moyenne": 4.9,
+  "avis": [
+    { "nom": "Aïcha D. — séjour en famille", "note": 5, "texte": "Un accueil très chaleureux, la piscine et la plage à deux pas, on s'est sentis chez nous du premier au dernier jour." },
+    { "nom": "Moussa K. — séjour en couple", "note": 5, "texte": "Cadre magnifique, chambres propres et bien climatisées, et le restaurant est excellent. On reviendra !" },
+    { "nom": "Fatou S. — voyage entre amis", "note": 4, "texte": "Très bon rapport qualité-prix pour la Petite Côte, personnel disponible et à l'écoute." }
   ]
 }
