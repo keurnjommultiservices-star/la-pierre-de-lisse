@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Pierre de Lisse — Hôtel & Résidence, Popenguine-Ndayane, Petite Côte</title>
+<meta name="description" content="La Pierre de Lisse, hôtel de luxe face à l'Atlantique à Popenguine-Ndayane, à proximité de Toubab Dialaw. Réservation directe, sans commission.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10181b;
+    --teal-deep:#1e4547;
+    --teal-mist:#8fb3ae;
+    --brass:#b9924f;
+    --brass-light:#d9b877;
+    --ivory:#f5f1e6;
+    --sand:#e7dcc4;
+    --line: rgba(245,241,230,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'Space Mono', monospace;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,64px);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(16,24,27,0.0);
+    transition: background .4s ease, box-shadow .4s ease;
+  }
+  header.scrolled{ background:rgba(16,24,27,0.92); backdrop-filter:blur(8px); box-shadow:0 1px 0 var(--line);}
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px clamp(20px,5vw,64px);
+    color:var(--ivory);
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-size:1.25rem; letter-spacing:0.02em; font-weight:500;
+  }
+  .logo span{color:var(--brass-light);}
+  .nav-links{display:flex; align-items:center; gap:36px; font-size:0.92rem;}
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a:not(.cta)::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--brass-light);
+    transition:width .3s ease;
+  }
+  .nav-links a:not(.cta):hover::after{width:100%;}
+  @media (max-width:760px){ .nav-links a:not(.cta){display:none;} }
+  .cta{
+    background:var(--brass); color:var(--ink)!important; padding:10px 20px; border-radius:2px;
+    font-size:0.85rem; font-weight:600; letter-spacing:0.02em;
+    display:inline-flex; align-items:center; gap:8px;
+    transition: background .25s ease, transform .25s ease;
+  }
+  .cta:hover{background:var(--brass-light); transform:translateY(-1px);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; min-height:100svh; display:flex; align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(16,24,27,0.25) 0%, rgba(16,24,27,0.35) 45%, rgba(16,24,27,0.82) 100%),
+      url('content/images/uploads/hero-vue-de-haut.jpg') center 30% / cover no-repeat,
+      linear-gradient(180deg, #142a2c 0%, #1e4547 42%, #2a5b58 62%, #b9924f 100%);
+    overflow:hidden;
+    color:var(--ivory);
+  }
+  .hero::before{ /* sun — masqué au profit de la photo réelle */
+    content:''; display:none;
+  }
+  .horizon{
+    position:absolute; left:0; right:0; top:58%; height:1px; background:rgba(245,241,230,0.55);
+    display:none;
+  }
+  .hero-waves{
+    position:absolute; left:0; right:0; bottom:0; width:100%; opacity:0.9;
+  }
+  .hero-content{
+    position:relative; z-index:2; padding:0 clamp(20px,5vw,64px) 90px; width:100%;
+  }
+  .hero-eyebrow{
+    font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--sand); opacity:0.9; margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.6rem); font-weight:400; max-width:14ch; line-height:1.04;
+    color:#fff;
+  }
+  .hero h1 em{font-style:italic; color:var(--brass-light);}
+  .hero p{
+    margin-top:22px; max-width:44ch; font-size:1.05rem; color:var(--sand); font-weight:300;
+  }
+  .hero-actions{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
+  .btn-ghost{
+    border:1px solid rgba(245,241,230,0.5); padding:12px 22px; border-radius:2px; font-size:0.9rem;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,0.06);}
+  .btn-solid{
+    background:var(--brass); color:var(--ink); padding:12px 22px; border-radius:2px; font-size:0.9rem; font-weight:600;
+  }
+  .btn-solid:hover{background:var(--brass-light);}
+
+  /* ---------- Section shared ---------- */
+  section{padding:100px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:400; margin-top:12px;}
+  .rule{width:44px; height:1px; background:var(--brass); margin:0 0 14px;}
+
+  /* ---------- Intro ---------- */
+  .intro{background:var(--ivory);}
+  .intro-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  @media (max-width:760px){ .intro-grid{grid-template-columns:1fr; gap:32px;} }
+  .intro p{color:#3a4244; font-size:1.02rem; max-width:52ch;}
+  .intro-figures{display:flex; gap:40px; margin-top:32px; flex-wrap:wrap;}
+  .fig .num{font-family:'Fraunces',serif; font-size:2.1rem; color:var(--teal-deep);}
+  .fig .lab{font-size:0.78rem; color:#6b6357; letter-spacing:0.04em;}
+
+  /* ---------- Rooms ---------- */
+  .rooms{background:#fff;}
+  .room-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:900px){ .room-grid{grid-template-columns:1fr;} }
+  .room-card{
+    border:1px solid #e6e0d2; border-radius:2px; overflow:hidden; background:#fff;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .room-card:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(16,24,27,0.10);}
+  .room-thumb{
+    height:220px; position:relative;
+  }
+  .room-thumb::after{
+    content:attr(data-tag); position:absolute; top:14px; left:14px; background:rgba(16,24,27,0.7); color:var(--ivory);
+    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    padding:5px 10px; border-radius:2px;
+  }
+  .r1{background:linear-gradient(135deg,#2a5b58,#8fb3ae 70%);}
+  .r2{background:linear-gradient(135deg,#1e4547,#b9924f 85%);}
+  .r3{background:linear-gradient(135deg,#10181b,#2a5b58 60%,#d9b877 130%);}
+  .room-body{padding:22px 22px 26px;}
+  .room-body h3{font-size:1.2rem; font-weight:500;}
+  .room-body .desc{color:#6b6357; font-size:0.92rem; margin-top:8px; min-height:44px;}
+  .room-meta{display:flex; justify-content:space-between; align-items:baseline; margin-top:18px; padding-top:16px; border-top:1px solid #eee6d5;}
+  .price{font-family:'Space Mono',monospace; font-size:1.05rem; color:var(--teal-deep);}
+  .price span{font-size:0.72rem; color:#9a9184;}
+  .room-link{font-size:0.82rem; color:var(--brass); border-bottom:1px solid var(--brass); padding-bottom:2px;}
+
+  .tariff-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  @media (max-width:760px){ .tariff-grid{grid-template-columns:1fr;} }
+  .tariff-card{border:1px solid #e6e0d2; border-radius:2px; overflow:hidden; background:#fff; transition:transform .3s ease, box-shadow .3s ease;}
+  .tariff-card:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(16,24,27,0.10);}
+  .tariff-body{padding:26px 26px 28px;}
+  .tariff-body h3{font-size:1.25rem; font-weight:500;}
+  .tariff-note{color:#9a9184; font-size:0.82rem; margin-top:6px; margin-bottom:18px;}
+  .tariff-row{display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-top:1px solid #eee6d5; gap:16px;}
+  .tariff-label{font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#6b6357;}
+  .tariff-amounts{text-align:right;}
+  .tariff-kid{font-size:0.76rem; color:#9a9184; margin-top:4px;}
+  .tariff-body .room-link{display:inline-block; margin-top:18px;}
+
+  /* ---------- Services ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  @media (max-width:900px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .services-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Gallery ---------- */
+  .gallery{background:var(--ink); color:var(--ivory);}
+  .gallery .eyebrow{color:var(--brass-light);}
+  .gallery .section-head h2{color:#fff;}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:140px; gap:12px;
+  }
+  @media (max-width:760px){ .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:120px;} }
+  .g-item{
+    border-radius:2px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:14px;
+    font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(245,241,230,0.85);
+  }
+  .g-item::before{content:''; position:absolute; inset:0; background:rgba(16,24,27,0.15);}
+  .g-item span{position:relative; z-index:1;}
+  .g1{grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#1e4547,#8fb3ae);}
+  .g2{background:linear-gradient(160deg,#b9924f,#5b4526);}
+  .g3{background:linear-gradient(200deg,#2a5b58,#10181b);}
+  .g4{grid-row:span 2; background:linear-gradient(180deg,#d9b877,#1e4547);}
+  .g5{background:linear-gradient(160deg,#10181b,#2a5b58);}
+  .g6{background:linear-gradient(160deg,#8fb3ae,#1e4547);}
+
+  /* ---------- WhatsApp CTA band ---------- */
+  .wa-band{
+    background:var(--teal-deep); color:var(--ivory);
+    padding:70px 0;
+  }
+  .wa-inner{display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap;}
+  .wa-inner h2{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:400; max-width:20ch;}
+  .wa-inner p{color:var(--teal-mist); margin-top:10px; max-width:42ch;}
+  .wa-btn{
+    background:var(--ivory); color:var(--ink); padding:16px 30px; border-radius:2px; font-weight:600; font-size:0.95rem;
+    display:inline-flex; align-items:center; gap:10px; white-space:nowrap;
+  }
+  .wa-btn:hover{background:var(--brass-light);}
+
+  /* ---------- Booking widget ---------- */
+  .booking{background:var(--sand);}
+  .booking-box{
+    background:#fff; border:1px solid #e6e0d2; border-radius:3px; padding:36px; box-shadow:0 30px 60px rgba(16,24,27,0.08);
+  }
+  .booking-form{
+    display:grid; grid-template-columns:repeat(4,1fr) auto; gap:18px; align-items:end;
+  }
+  @media (max-width:900px){ .booking-form{grid-template-columns:1fr 1fr; } .booking-form .bsub{grid-column:span 2;} }
+  .field label{display:block; font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#8a8172; margin-bottom:8px;}
+  .field input, .field select{
+    width:100%; border:none; border-bottom:1px solid #d8d0bd; padding:8px 2px; font-family:'Work Sans'; font-size:0.95rem; background:transparent;
+  }
+  .field input:focus, .field select:focus{outline:none; border-bottom-color:var(--brass);}
+  .booking-form button{
+    background:var(--ink); color:var(--ivory); border:none; padding:12px 26px; border-radius:2px; font-size:0.88rem; font-weight:600; cursor:pointer;
+    transition:background .25s ease;
+  }
+  .booking-form button:hover{background:var(--teal-deep);}
+  .booking-note{margin-top:18px; font-size:0.82rem; color:#8a8172;}
+
+  /* ---------- Commission strip ---------- */
+  .commission{background:#fff;}
+  .comm-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#e6e0d2; border:1px solid #e6e0d2;}
+  @media (max-width:760px){ .comm-grid{grid-template-columns:1fr;} }
+  .comm-cell{background:#fff; padding:40px;}
+  .comm-cell.dark{background:var(--ink); color:var(--ivory);}
+  .comm-cell .eyebrow{margin-bottom:14px;}
+  .comm-cell .big{font-family:'Fraunces',serif; font-size:2.6rem; margin:6px 0;}
+  .comm-cell.dark .big{color:var(--brass-light);}
+  .comm-cell p{color:#6b6357; font-size:0.9rem; max-width:34ch;}
+  .comm-cell.dark p{color:var(--teal-mist);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:var(--sand); padding:64px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px;}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr; gap:28px;} }
+  .foot-grid h4{font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass-light); margin-bottom:14px;}
+  .foot-grid a, .foot-grid p{font-size:0.9rem; color:var(--sand); opacity:0.85;}
+  .foot-links{display:flex; flex-direction:column; gap:8px;}
+  .foot-bottom{
+    margin-top:52px; padding-top:22px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-size:0.78rem; color:#8a9694; flex-wrap:wrap; gap:10px;
+  }
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+    outline:2px solid var(--brass); outline-offset:2px;
+  }
+</style>
+<!-- Traite les liens d'invitation / réinitialisation Netlify Identity depuis n'importe quelle page -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="nav">
+    <a href="#top" class="logo">La Pierre <span>de Lisse</span></a>
+    <div class="nav-links">
+      <a href="#chambres">Chambres</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#reserver">Réserver</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" id="nav-wa-cta" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20une%20chambre%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="horizon"></div>
+  <svg class="hero-waves" viewBox="0 0 1440 140" preserveAspectRatio="none" style="height:140px;">
+    <path d="M0,70 C240,110 480,20 720,60 C960,100 1200,30 1440,70 L1440,140 L0,140 Z" fill="rgba(16,24,27,0.55)"/>
+    <path d="M0,90 C260,50 500,120 760,80 C1020,40 1260,110 1440,90 L1440,140 L0,140 Z" fill="rgba(16,24,27,0.85)"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="hero-eyebrow">Popenguine-Ndayane · Petite Côte · Sénégal</div>
+    <h1><span id="hero-title-line1">La brousse a</span><br><em id="hero-title-em">son confort.</em></h1>
+    <p id="hero-text">La Pierre de Lisse, hôtel-résidence posé sur la Petite Côte, à quelques minutes de Toubab Dialaw, où chaque matinée commence face à l'océan.</p>
+    <div class="hero-actions">
+      <a class="btn-solid" href="#reserver">Vérifier les disponibilités</a>
+      <a class="btn-ghost" href="#chambres">Découvrir les chambres</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div class="reveal">
+      <div class="eyebrow">La maison</div>
+      <h2 style="font-family:'Fraunces',serif; font-size:1.9rem; margin-top:10px; font-weight:400;">Une adresse pensée comme une maison, tenue comme un hôtel.</h2>
+    </div>
+    <div class="reveal">
+      <p id="intro-text">La Pierre de Lisse occupe une parcelle privée sur la côte de Popenguine-Ndayane, à proximité de Toubab Dialaw. Dix-huit chambres et suites, une piscine à débordement face à l'océan, et une table ouverte sur la terrasse dès le lever du jour. Ici, le service se fait discret : on vous connaît dès la deuxième nuit.</p>
+      <div class="intro-figures">
+        <div class="fig"><div class="num mono">18</div><div class="lab">chambres &amp; suites</div></div>
+        <div class="fig"><div class="num mono">4.9</div><div class="lab">avis clients</div></div>
+        <div class="fig"><div class="num mono">2018</div><div class="lab">ouverture</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="chambres">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Chambres &amp; services</div>
+      <div class="rule"></div>
+      <h2>Trois façons d'habiter la baie.</h2>
+    </div>
+    <div class="tariff-grid" id="tariff-grid">
+      <div class="tariff-card reveal">
+        <div class="room-thumb r1" data-tag="Bungalow"></div>
+        <div class="tariff-body">
+          <h3>Bungalow Standard</h3>
+          <p class="tariff-note">Tarifs par personne et par jour, hors boisson.</p>
+          <div class="tariff-row">
+            <div class="tariff-label">Pension complète</div>
+            <div class="tariff-amounts">
+              <div class="price">48 000 F<span> / pers.</span></div>
+              <div class="tariff-kid">−12 ans : <strong>30 000 F</strong></div>
+            </div>
+          </div>
+          <div class="tariff-row">
+            <div class="tariff-label">Demi-pension</div>
+            <div class="tariff-amounts">
+              <div class="price">40 000 F<span> / pers.</span></div>
+              <div class="tariff-kid">−12 ans : <strong>26 000 F</strong></div>
+            </div>
+          </div>
+          <a class="room-link" href="#reserver">Réserver →</a>
+        </div>
+      </div>
+      <div class="tariff-card reveal">
+        <div class="room-thumb r2" data-tag="Bungalow"></div>
+        <div class="tariff-body">
+          <h3>Bungalow Grand Confort</h3>
+          <p class="tariff-note">Tarifs par personne et par jour, hors boisson.</p>
+          <div class="tariff-row">
+            <div class="tariff-label">Pension complète</div>
+            <div class="tariff-amounts">
+              <div class="price">51 000 F<span> / pers.</span></div>
+              <div class="tariff-kid">−12 ans : <strong>35 000 F</strong></div>
+            </div>
+          </div>
+          <div class="tariff-row">
+            <div class="tariff-label">Demi-pension</div>
+            <div class="tariff-amounts">
+              <div class="price">43 000 F<span> / pers.</span></div>
+              <div class="tariff-kid">−12 ans : <strong>30 000 F</strong></div>
+            </div>
+          </div>
+          <a class="room-link" href="#reserver">Réserver →</a>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:0.82rem; color:#8a8172;">Tarifs indicatifs, par personne, selon le type de chambre et la formule choisie.</p>
+  </div>
+</section>
+
+<section class="commission" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Équipements &amp; services</div>
+      <div class="rule"></div>
+      <h2>Ce qui vous attend sur place.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="services-grid">
+      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+        <div class="eyebrow" style="color:var(--teal-deep);">01</div>
+        <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Piscine extérieure</h3>
+        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Grande piscine avec transats et paillotes, ouverte du matin au soir.</p>
+      </div>
+      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+        <div class="eyebrow" style="color:var(--teal-deep);">02</div>
+        <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Restaurant &amp; bar</h3>
+        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Repas copieux et bar d'ambiance, pour un déjeuner comme pour une soirée.</p>
+      </div>
+      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+        <div class="eyebrow" style="color:var(--teal-deep);">03</div>
+        <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Salle de réunion</h3>
+        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Un espace conférence pour séminaires et événements professionnels.</p>
+      </div>
+      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+        <div class="eyebrow" style="color:var(--teal-deep);">04</div>
+        <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Plage &amp; excursions</h3>
+        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Accès direct à la plage et propositions d'excursions sur la Petite Côte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galerie">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Galerie</div>
+      <div class="rule"></div>
+      <h2>La baie, la lumière, la table.</h2>
+    </div>
+    <div class="gallery-grid reveal" id="gallery-grid">
+      <div class="g-item g1" style="background-image:url('content/images/uploads/hero-vue-de-haut.jpg'); background-size:cover; background-position:center;"><span>Piscine à débordement</span></div>
+      <div class="g-item g2"><span>Bungalow Grand Confort</span></div>
+      <div class="g-item g3"><span>Terrasse au coucher du soleil</span></div>
+      <div class="g-item g4"><span>Table du chef</span></div>
+      <div class="g-item g5"><span>Bungalow Standard</span></div>
+      <div class="g-item g6"><span>Accès plage privé</span></div>
+    </div>
+    <p style="margin-top:18px; font-size:0.8rem; color:var(--teal-mist);">Emplacements réservés à vos photos réelles — galerie de démonstration.</p>
+  </div>
+</section>
+
+<section class="wa-band">
+  <div class="wrap wa-inner">
+    <div class="reveal">
+      <h2>Une question ? Réservez en direct, par WhatsApp.</h2>
+      <p>Réponse en quelques minutes, du lever au coucher du soleil. Pas de formulaire à remplir, pas d'attente.</p>
+    </div>
+    <a class="wa-btn reveal" id="wa-band-btn" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">
+      Écrire sur WhatsApp
+    </a>
+  </div>
+</section>
+
+<section class="booking" id="reserver">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Réservation directe</div>
+      <div class="rule"></div>
+      <h2>Vérifiez les disponibilités.</h2>
+    </div>
+    <div class="booking-box reveal">
+      <form class="booking-form" id="booking-form">
+        <div class="field">
+          <label for="in">Arrivée</label>
+          <input type="date" id="in" required>
+        </div>
+        <div class="field">
+          <label for="out">Départ</label>
+          <input type="date" id="out" required>
+        </div>
+        <div class="field">
+          <label for="guests">Voyageurs</label>
+          <select id="guests">
+            <option>1 personne</option>
+            <option selected>2 personnes</option>
+            <option>3 personnes</option>
+            <option>4 personnes et +</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="room">Chambre</label>
+          <select id="room">
+            <option>Bungalow Standard</option>
+            <option>Bungalow Grand Confort</option>
+          </select>
+        </div>
+        <div class="field bsub">
+          <button type="submit">Vérifier sur WhatsApp</button>
+        </div>
+      </form>
+      <p class="booking-note">En cliquant sur « Vérifier sur WhatsApp », vos dates, le nombre de voyageurs et la chambre choisie sont envoyés directement à notre équipe pour confirmation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="commission">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Réservation directe vs plateformes</div>
+      <div class="rule"></div>
+      <h2>Chaque réservation directe reste dans la maison.</h2>
+    </div>
+  </div>
+  <div class="comm-grid reveal">
+    <div class="comm-cell">
+      <div class="eyebrow">Plateformes (OTA)</div>
+      <div class="big">15–20%</div>
+      <p>de commission prélevée sur chaque réservation, avant même la première nuit.</p>
+    </div>
+    <div class="comm-cell dark">
+      <div class="eyebrow">Site &amp; WhatsApp La Pierre de Lisse</div>
+      <div class="big">0%</div>
+      <p>de commission sur les réservations directes — le client reste le vôtre, du premier message à son retour.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="logo" style="margin-bottom:6px;">La Pierre <span>de Lisse</span></div>
+      <p id="foot-tagline" style="font-family:'Fraunces',serif; font-style:italic; color:var(--brass-light); font-size:0.92rem; margin-bottom:14px;">La brousse a son confort.</p>
+      <p id="foot-address" style="max-width:32ch;">Popenguine-Ndayane, Petite Côte, Sénégal — à proximité de Toubab Dialaw. Hôtel-résidence de 18 chambres face à l'Atlantique.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <div class="foot-links">
+        <a href="https://wa.me/221772465628" id="foot-wa" target="_blank" rel="noopener">+221 77 246 56 28</a>
+        <a href="tel:+22133957148" id="foot-tel">+221 33 957 71 48</a>
+        <a href="mailto:reservation@lapierredelisse-demo.sn" id="foot-email">reservation@lapierredelisse-demo.sn</a>
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <div class="foot-links">
+        <a href="#chambres">Chambres</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#reserver">Réserver</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 La Pierre de Lisse — site de démonstration.</span>
+    <span>Contenus et coordonnées fictifs, à remplacer par les vôtres.</span>
+  </div>
+</footer>
+
+<script>
+  // Header background on scroll
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  // Default booking dates
+  const today = new Date();
+  const tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+  const dayAfter = new Date(today); dayAfter.setDate(today.getDate()+3);
+  const fmt = (d)=> d.toISOString().split('T')[0];
+  document.getElementById('in').value = fmt(tomorrow);
+  document.getElementById('out').value = fmt(dayAfter);
+  document.getElementById('in').min = fmt(today);
+  document.getElementById('out').min = fmt(tomorrow);
+
+  // ---- Contenu géré depuis l'admin (content/site.json) ----
+  const fmtF = (n) => Number(n).toLocaleString('fr-FR').replace(/\u202f|,/g, ' ') + ' F';
+  const waLink = (num, text) => `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
+  let currentWaNumber = '221772465628'; // valeur par défaut, écrasée par site.json si disponible
+
+  fetch('content/site.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (!data) return;
+
+      // Textes
+      if (data.hero_eyebrow) document.getElementById('hero-eyebrow').textContent = data.hero_eyebrow;
+      if (data.hero_title_line1) document.getElementById('hero-title-line1').textContent = data.hero_title_line1;
+      if (data.hero_title_em) document.getElementById('hero-title-em').textContent = data.hero_title_em;
+      if (data.hero_text) document.getElementById('hero-text').textContent = data.hero_text;
+      if (data.intro_text) document.getElementById('intro-text').textContent = data.intro_text;
+      if (data.footer_tagline) document.getElementById('foot-tagline').textContent = data.footer_tagline;
+
+      // Coordonnées
+      const c = data.contact || {};
+      if (c.whatsapp) {
+        currentWaNumber = c.whatsapp;
+        document.getElementById('nav-wa-cta').href = waLink(c.whatsapp, `Bonjour, je souhaite réserver une chambre à La Pierre de Lisse`);
+        document.getElementById('wa-band-btn').href = waLink(c.whatsapp, `Bonjour, je souhaite des informations sur La Pierre de Lisse`);
+        const footWa = document.getElementById('foot-wa');
+        footWa.href = `https://wa.me/${c.whatsapp}`;
+        footWa.textContent = '+' + c.whatsapp.replace(/(\d{3})(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+      }
+      if (c.tel_fixe) {
+        const footTel = document.getElementById('foot-tel');
+        footTel.href = 'tel:' + c.tel_fixe.replace(/\s+/g,'');
+        footTel.textContent = c.tel_fixe;
+      }
+      if (c.email) {
+        const footEmail = document.getElementById('foot-email');
+        footEmail.href = 'mailto:' + c.email;
+        footEmail.textContent = c.email;
+      }
+      if (c.adresse) document.getElementById('foot-address').textContent = c.adresse;
+
+      // Tarifs
+      if (Array.isArray(data.tarifs) && data.tarifs.length) {
+        const thumbClasses = ['r1','r2','r3'];
+        document.getElementById('tariff-grid').innerHTML = data.tarifs.map((t, i) => `
+          <div class="tariff-card reveal in">
+            <div class="room-thumb ${thumbClasses[i % 3]}" data-tag="Bungalow"></div>
+            <div class="tariff-body">
+              <h3>${t.nom || ''}</h3>
+              <p class="tariff-note">${t.note || 'Tarifs par personne et par jour, hors boisson.'}</p>
+              <div class="tariff-row">
+                <div class="tariff-label">Pension complète</div>
+                <div class="tariff-amounts">
+                  <div class="price">${fmtF(t.pc_adulte||0)}<span> / pers.</span></div>
+                  <div class="tariff-kid">−12 ans : <strong>${fmtF(t.pc_enfant||0)}</strong></div>
+                </div>
+              </div>
+              <div class="tariff-row">
+                <div class="tariff-label">Demi-pension</div>
+                <div class="tariff-amounts">
+                  <div class="price">${fmtF(t.dp_adulte||0)}<span> / pers.</span></div>
+                  <div class="tariff-kid">−12 ans : <strong>${fmtF(t.dp_enfant||0)}</strong></div>
+                </div>
+              </div>
+              <a class="room-link" href="#reserver">Réserver →</a>
+            </div>
+          </div>
+        `).join('');
+
+        // Synchronise le sélecteur de chambres du formulaire de réservation
+        const roomSelect = document.getElementById('room');
+        if (roomSelect) roomSelect.innerHTML = data.tarifs.map(t => `<option>${t.nom}</option>`).join('');
+      }
+
+      // Galerie
+      if (Array.isArray(data.galerie) && data.galerie.length) {
+        const gradClasses = ['g1','g2','g3','g4','g5','g6'];
+        document.getElementById('gallery-grid').innerHTML = data.galerie.map((g, i) => {
+          const cls = gradClasses[i % 6];
+          const style = g.image ? `style="background-image:url('${g.image}'); background-size:cover; background-position:center;"` : '';
+          return `<div class="g-item ${g.image ? '' : cls}" ${style}><span>${g.legende || ''}</span></div>`;
+        }).join('');
+      }
+    })
+    .catch(() => { /* le site garde son contenu par défaut si le fichier est indisponible */ });
+
+  // Formulaire de réservation → message WhatsApp pré-rempli
+  const formatDateFr = (isoStr) => {
+    if (!isoStr) return '';
+    const [y, m, d] = isoStr.split('-');
+    return `${d}/${m}/${y}`;
+  };
+  document.getElementById('booking-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const arrivee = formatDateFr(document.getElementById('in').value);
+    const depart = formatDateFr(document.getElementById('out').value);
+    const voyageurs = document.getElementById('guests').value;
+    const chambre = document.getElementById('room').value;
+    const message = `Bonjour, je souhaite vérifier une disponibilité à La Pierre de Lisse :\n- Arrivée : ${arrivee}\n- Départ : ${depart}\n- Voyageurs : ${voyageurs}\n- Chambre souhaitée : ${chambre}`;
+    window.open(waLink(currentWaNumber, message), '_blank', 'noopener');
+  });
+</script>
+
+</body>
+</html>
