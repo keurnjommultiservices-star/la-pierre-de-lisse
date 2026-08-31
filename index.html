@@ -894,9 +894,13 @@
             const j = Math.floor(Math.random() * (i + 1));
             [photos[i], photos[j]] = [photos[j], photos[i]];
           }
-          // Dupliqué pour un défilement en boucle continue
-          const doubled = photos.concat(photos);
+          // Répète la liste jusqu'à avoir assez d'images pour remplir un grand écran
+          let extended = [];
+          while (extended.length < 16) { extended = extended.concat(photos); }
+          // Dupliqué une fois de plus pour un défilement en boucle continue et sans coupure
+          const doubled = extended.concat(extended);
           marqueeTrack.innerHTML = doubled.map(src => `<img src="${src}" alt="La Pierre de Lisse" loading="lazy">`).join('');
+          marqueeTrack.style.animationDuration = (extended.length * 6) + 's';
           document.getElementById('marquee-section').style.display = '';
         } else {
           marqueeTrack.closest('.photo-marquee-section').style.display = 'none';
