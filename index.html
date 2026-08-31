@@ -278,6 +278,19 @@
     outline:2px solid var(--brass); outline-offset:2px;
   }
 </style>
+<!-- Traite les liens d'invitation / réinitialisation Netlify Identity depuis n'importe quelle page -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </head>
 <body>
 
