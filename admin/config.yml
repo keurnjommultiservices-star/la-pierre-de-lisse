@@ -90,10 +90,11 @@ collections:
                 widget: "number"
                 value_type: "int"
 
-          - label: "Galerie photos"
+          - label: "Galerie photos (avec légende)"
             name: "galerie"
             widget: "list"
             summary: "{{fields.legende}}"
+            hint: "Une entrée = une photo avec sa légende (ex : « Piscine à débordement »)."
             fields:
               - label: "Photo"
                 name: "image"
@@ -102,6 +103,13 @@ collections:
               - label: "Légende"
                 name: "legende"
                 widget: "string"
+
+          - label: "Photos supplémentaires (upload multiple, sans légende)"
+            name: "photos_libres"
+            widget: "image"
+            multiple: true
+            required: false
+            hint: "Sélectionnez plusieurs photos d'un coup (maintenez Ctrl ou Cmd pendant la sélection dans la médiathèque). Elles s'ajoutent automatiquement à la galerie et au défilement de la page d'accueil."
 
           - label: "Note moyenne affichée (sur 5)"
             name: "avis_note_moyenne"
