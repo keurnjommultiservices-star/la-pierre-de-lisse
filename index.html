@@ -872,10 +872,15 @@
         if (roomSelect) roomSelect.innerHTML = data.tarifs.map(t => `<option>${t.nom}</option>`).join('');
       }
 
-      // Galerie
-      if (Array.isArray(data.galerie) && data.galerie.length) {
+      // Galerie (photos légendées + photos supplémentaires sans légende)
+      const librePhotos = Array.isArray(data.photos_libres) ? data.photos_libres.filter(Boolean) : [];
+      const galerieItems = [
+        ...(Array.isArray(data.galerie) ? data.galerie : []),
+        ...librePhotos.map(src => ({ image: src, legende: '' })),
+      ];
+      if (galerieItems.length) {
         const gradClasses = ['g1','g2','g3','g4','g5','g6'];
-        document.getElementById('gallery-grid').innerHTML = data.galerie.map((g, i) => {
+        document.getElementById('gallery-grid').innerHTML = galerieItems.map((g, i) => {
           const cls = gradClasses[i % 6];
           const style = g.image ? `style="background-image:url('${g.image}'); background-size:cover; background-position:center;"` : '';
           return `<div class="g-item ${g.image ? '' : cls}" ${style}><span>${g.legende || ''}</span></div>`;
@@ -885,9 +890,7 @@
       // Défilement de photos aléatoires sur la page d'accueil
       const marqueeTrack = document.getElementById('marquee-track');
       if (marqueeTrack) {
-        const photos = (Array.isArray(data.galerie) ? data.galerie : [])
-          .map(g => g.image)
-          .filter(Boolean);
+        const photos = galerieItems.map(g => g.image).filter(Boolean);
         if (photos.length) {
           // Mélange aléatoire (Fisher-Yates)
           for (let i = photos.length - 1; i > 0; i--) {
