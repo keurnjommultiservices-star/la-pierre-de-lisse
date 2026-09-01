@@ -104,12 +104,15 @@ collections:
                 name: "legende"
                 widget: "string"
 
-          - label: "Photos supplémentaires (upload multiple, sans légende)"
+          - label: "Photos supplémentaires (rapide, sans légende)"
             name: "photos_libres"
-            widget: "image"
-            multiple: true
-            required: false
-            hint: "Sélectionnez plusieurs photos d'un coup (maintenez Ctrl ou Cmd pendant la sélection dans la médiathèque). Elles s'ajoutent automatiquement à la galerie et au défilement de la page d'accueil."
+            widget: "list"
+            summary: "Photo {{index}}"
+            hint: "Cliquez sur « Add » pour chaque nouvelle photo — pas de légende à saisir, c'est fait pour aller vite."
+            fields:
+              - label: "Photo"
+                name: "image"
+                widget: "image"
 
           - label: "Note moyenne affichée (sur 5)"
             name: "avis_note_moyenne"
