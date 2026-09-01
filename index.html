@@ -873,7 +873,9 @@
       }
 
       // Galerie (photos légendées + photos supplémentaires sans légende)
-      const librePhotos = Array.isArray(data.photos_libres) ? data.photos_libres.filter(Boolean) : [];
+      const librePhotos = Array.isArray(data.photos_libres)
+        ? data.photos_libres.map(p => p && p.image).filter(Boolean)
+        : [];
       const galerieItems = [
         ...(Array.isArray(data.galerie) ? data.galerie : []),
         ...librePhotos.map(src => ({ image: src, legende: '' })),
