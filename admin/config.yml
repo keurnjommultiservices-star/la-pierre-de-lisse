@@ -114,11 +114,11 @@ collections:
                 name: "image"
                 widget: "image"
 
-          - label: "3 cartes de la page d'accueil (mots sur les photos)"
+          - label: "3 cartes de la page d'accueil (mots + photo fixe)"
             name: "highlights"
             widget: "list"
             summary: "{{fields.mot}}"
-            hint: "Les 3 mots affichés sur les photos qui défilent en haut de la page d'accueil."
+            hint: "3 cartes fixes affichées en haut de la page d'accueil. Ne pas ajouter ni supprimer de carte — modifiez seulement le mot, le sous-titre et la photo de chacune."
             fields:
               - label: "Mot"
                 name: "mot"
@@ -126,6 +126,11 @@ collections:
               - label: "Sous-titre"
                 name: "sous_titre"
                 widget: "string"
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                required: false
+                hint: "Tant qu'aucune photo n'est ajoutée, un dégradé de couleur s'affiche à la place."
 
           - label: "Séminaires & banquets"
             name: "seminaires"
