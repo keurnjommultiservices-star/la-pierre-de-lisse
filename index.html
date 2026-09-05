@@ -63,14 +63,15 @@
     text-shadow:0 1px 8px rgba(16,24,27,0.35);
   }
   .logo span{color:var(--brass-light);}
-  .nav-links{display:flex; align-items:center; gap:36px; font-size:0.92rem;}
+  .nav-links{display:flex; align-items:center; gap:36px; font-size:0.92rem; flex:1; justify-content:flex-end;}
+  .nav-links-main{display:flex; align-items:center; justify-content:space-between; flex:1; margin-right:40px; font-size:1.08rem; font-weight:500;}
   .nav-links a{position:relative; padding:4px 0;}
   .nav-links a:not(.cta)::after{
     content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--brass-light);
     transition:width .3s ease;
   }
   .nav-links a:not(.cta):hover::after{width:100%;}
-  @media (max-width:760px){ .nav-links a:not(.cta){display:none;} }
+  @media (max-width:760px){ .nav-links a:not(.cta){display:none;} .nav-links-main{display:none;} }
   .cta{
     background:var(--brass); color:var(--ink)!important; padding:10px 20px; border-radius:2px;
     font-size:0.85rem; font-weight:600; letter-spacing:0.02em;
@@ -169,21 +170,21 @@
   }
   .highlight-content{position:relative; z-index:1; padding:26px;}
   .highlight-word{
-    font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:2.1rem; color:#fff; line-height:1.1;
+    font-family:'Fraunces',serif; font-style:italic; font-weight:700; font-size:2.8rem; color:#fff; line-height:1.1;
   }
   .highlight-sub{
-    font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--brass-light); margin-top:8px;
+    font-family:'Space Mono',monospace; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:#fff; margin-top:10px; font-weight:700;
   }
 
   /* ---------- Intro ---------- */
   .intro{background:var(--ivory);}
   .intro-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
   @media (max-width:760px){ .intro-grid{grid-template-columns:1fr; gap:32px;} }
-  .intro p{color:#3a4244; font-size:1.02rem; max-width:52ch;}
+  .intro p{color:#000000; font-size:1.02rem; max-width:52ch;}
   .intro-figures{display:flex; gap:40px; margin-top:32px; flex-wrap:wrap;}
   .fig .num{font-family:'Fraunces',serif; font-size:2.1rem; color:var(--teal-deep);}
-  .fig .lab{font-size:0.78rem; color:#6b6357; letter-spacing:0.04em;}
+  .fig .lab{font-size:0.78rem; color:#000000; letter-spacing:0.04em;}
 
   /* ---------- Rooms ---------- */
   .rooms{background:#fff;}
@@ -198,19 +199,19 @@
     height:220px; position:relative;
   }
   .room-thumb::after{
-    content:attr(data-tag); position:absolute; top:14px; left:14px; background:rgba(16,24,27,0.7); color:var(--ivory);
-    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
-    padding:5px 10px; border-radius:2px;
+    content:attr(data-tag); position:absolute; top:14px; left:14px; background:rgba(16,24,27,0.75); color:#fff;
+    font-family:'Space Mono',monospace; font-size:0.85rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    padding:7px 14px; border-radius:2px;
   }
   .r1{background:linear-gradient(135deg,#2a5b58,#8fb3ae 70%);}
   .r2{background:linear-gradient(135deg,#1e4547,#b9924f 85%);}
   .r3{background:linear-gradient(135deg,#10181b,#2a5b58 60%,#d9b877 130%);}
   .room-body{padding:22px 22px 26px;}
   .room-body h3{font-size:1.2rem; font-weight:500;}
-  .room-body .desc{color:#6b6357; font-size:0.92rem; margin-top:8px; min-height:44px;}
+  .room-body .desc{color:#000000; font-size:0.92rem; margin-top:8px; min-height:44px;}
   .room-meta{display:flex; justify-content:space-between; align-items:baseline; margin-top:18px; padding-top:16px; border-top:1px solid #eee6d5;}
   .price{font-family:'Space Mono',monospace; font-size:1.05rem; color:var(--teal-deep);}
-  .price span{font-size:0.72rem; color:#9a9184;}
+  .price span{font-size:0.72rem; color:#000000;}
   .room-link{font-size:0.82rem; color:var(--brass); border-bottom:1px solid var(--brass); padding-bottom:2px;}
 
   .tariff-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
@@ -219,11 +220,11 @@
   .tariff-card:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(16,24,27,0.10);}
   .tariff-body{padding:26px 26px 28px;}
   .tariff-body h3{font-size:1.25rem; font-weight:500;}
-  .tariff-note{color:#9a9184; font-size:0.82rem; margin-top:6px; margin-bottom:18px;}
+  .tariff-note{color:#000000; font-size:0.82rem; margin-top:6px; margin-bottom:18px;}
   .tariff-row{display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-top:1px solid #eee6d5; gap:16px;}
-  .tariff-label{font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#6b6357;}
+  .tariff-label{font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#000000;}
   .tariff-amounts{text-align:right;}
-  .tariff-kid{font-size:0.76rem; color:#9a9184; margin-top:4px;}
+  .tariff-kid{font-size:0.76rem; color:#000000; margin-top:4px;}
   .tariff-body .room-link{display:inline-block; margin-top:18px;}
 
   /* ---------- Services ---------- */
@@ -242,9 +243,9 @@
   .g-item{
     border-radius:2px; position:relative; overflow:hidden;
     display:flex; align-items:flex-end; padding:14px;
-    font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(245,241,230,0.85);
+    font-family:'Space Mono',monospace; font-size:0.85rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#fff;
   }
-  .g-item::before{content:''; position:absolute; inset:0; background:rgba(16,24,27,0.15);}
+  .g-item::before{content:''; position:absolute; inset:0; background:rgba(16,24,27,0.32);}
   .g-item span{position:relative; z-index:1;}
   .g1{grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#1e4547,#8fb3ae);}
   .g2{background:linear-gradient(160deg,#b9924f,#5b4526);}
@@ -276,7 +277,7 @@
     display:grid; grid-template-columns:repeat(4,1fr) auto; gap:18px; align-items:end;
   }
   @media (max-width:900px){ .booking-form{grid-template-columns:1fr 1fr; } .booking-form .bsub{grid-column:span 2;} }
-  .field label{display:block; font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#8a8172; margin-bottom:8px;}
+  .field label{display:block; font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#000000; margin-bottom:8px;}
   .field input, .field select{
     width:100%; border:none; border-bottom:1px solid #d8d0bd; padding:8px 2px; font-family:'Work Sans'; font-size:0.95rem; background:transparent;
   }
@@ -286,7 +287,7 @@
     transition:background .25s ease;
   }
   .booking-form button:hover{background:var(--teal-deep);}
-  .booking-note{margin-top:18px; font-size:0.82rem; color:#8a8172;}
+  .booking-note{margin-top:18px; font-size:0.82rem; color:#000000;}
 
   /* ---------- Commission strip ---------- */
   .commission{background:#fff;}
@@ -297,18 +298,43 @@
   .comm-cell .eyebrow{margin-bottom:14px;}
   .comm-cell .big{font-family:'Fraunces',serif; font-size:2.6rem; margin:6px 0;}
   .comm-cell.dark .big{color:var(--brass-light);}
-  .comm-cell p{color:#6b6357; font-size:0.9rem; max-width:34ch;}
+  .comm-cell p{color:#000000; font-size:0.9rem; max-width:34ch;}
   .comm-cell.dark p{color:var(--teal-mist);}
+
+  /* ---------- Séminaires & Restaurants (deep-dive) ---------- */
+  .deepdive{background:#fff;}
+  .deepdive.alt{background:var(--ivory);}
+  .deepdive-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  @media (max-width:900px){ .deepdive-grid{grid-template-columns:1fr; gap:28px;} }
+  .deepdive-grid.reverse .deepdive-media{order:2;}
+  @media (max-width:900px){ .deepdive-grid.reverse .deepdive-media{order:0;} }
+  .deepdive-media{
+    height:380px; border-radius:2px; background-size:cover; background-position:center;
+    position:relative; overflow:hidden;
+  }
+  .deepdive-media .placeholder-tag{
+    position:absolute; left:16px; bottom:16px; background:rgba(16,24,27,0.72); color:var(--ivory);
+    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding:6px 12px; border-radius:2px;
+  }
+  .deepdive-text h3{font-family:'Fraunces',serif; font-size:1.7rem; font-weight:400; margin-bottom:16px;}
+  .deepdive-text p{color:#000000; font-size:1rem; margin-bottom:14px;}
+  .deepdive-text p:last-of-type{margin-bottom:0;}
+  .deepdive-bars{margin-top:20px; padding-top:18px; border-top:1px solid #e6e0d2;}
+  .deepdive-bars .lab{font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:#000000; margin-bottom:10px;}
+  .deepdive-bars ul{list-style:none;}
+  .deepdive-bars li{font-size:0.98rem; color:#000000; padding:6px 0 6px 18px; position:relative;}
+  .deepdive-bars li::before{content:''; position:absolute; left:0; top:0.9em; width:6px; height:6px; border-radius:50%; background:var(--brass);}
 
   /* ---------- Activités ---------- */
   .activites{background:#fff;}
   .activites-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
   @media (max-width:760px){ .activites-grid{grid-template-columns:1fr; gap:32px;} }
-  .activites-intro p{color:#3a4244; font-size:1rem; margin-bottom:14px;}
+  .activites-intro p{color:#000000; font-size:1rem; margin-bottom:14px;}
   .activites-intro p:last-child{margin-bottom:0;}
   .activites-list{list-style:none;}
   .activites-list li{
-    font-size:0.98rem; color:#3a4244; padding:10px 0 10px 20px; position:relative;
+    font-size:0.98rem; color:#000000; padding:10px 0 10px 20px; position:relative;
     border-top:1px solid #eee6d5;
   }
   .activites-list li:first-child{border-top:none;}
@@ -325,7 +351,7 @@
   }
   .avis-summary h3{font-size:1.1rem; font-weight:500;}
   .avis-summary .stars{color:var(--brass); letter-spacing:0.1em; margin-top:4px; display:inline-block;}
-  .avis-summary .score{font-family:'Space Mono',monospace; color:#6b6357; font-size:0.85rem; margin-left:8px;}
+  .avis-summary .score{font-family:'Space Mono',monospace; color:#000000; font-size:0.85rem; margin-left:8px;}
   .avis-cta{
     background:var(--ink); color:#fff; padding:12px 24px; border-radius:999px; font-size:0.88rem; font-weight:600;
     white-space:nowrap;
@@ -335,8 +361,8 @@
   @media (max-width:900px){ .avis-grid{grid-template-columns:1fr;} }
   .avis-card{border:1px solid #e6e0d2; border-radius:2px; padding:24px;}
   .avis-card .stars{color:var(--brass); letter-spacing:0.1em; font-size:0.9rem;}
-  .avis-card p{color:#3a4244; font-size:0.92rem; margin-top:12px; font-style:italic;}
-  .avis-card .who{margin-top:16px; font-size:0.82rem; color:#8a8172;}
+  .avis-card p{color:#000000; font-size:0.92rem; margin-top:12px; font-style:italic;}
+  .avis-card .who{margin-top:16px; font-size:0.82rem; color:#000000;}
 
   /* ---------- Infos pratiques ---------- */
   .infos{background:var(--ivory);}
@@ -347,7 +373,7 @@
   .infos-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;}
   @media (max-width:900px){ .infos-grid{grid-template-columns:1fr;} }
   .infos-card{border:1px solid #e6e0d2; border-radius:2px; background:#fff; padding:32px;}
-  .infos-text p{color:#3a4244; font-size:0.98rem; margin-bottom:16px;}
+  .infos-text p{color:#000000; font-size:0.98rem; margin-bottom:16px;}
   .infos-text p:last-child{margin-bottom:0;}
   .infos-group{margin-bottom:26px;}
   .infos-group:last-child{margin-bottom:0;}
@@ -358,7 +384,7 @@
   .infos-list{display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; list-style:none;}
   @media (max-width:480px){ .infos-list{grid-template-columns:1fr;} }
   .infos-list li{
-    font-size:0.88rem; color:#3a4244; padding-left:16px; position:relative;
+    font-size:0.88rem; color:#000000; padding-left:16px; position:relative;
   }
   .infos-list li::before{
     content:''; position:absolute; left:0; top:0.55em; width:5px; height:5px; border-radius:50%; background:var(--brass);
@@ -367,13 +393,13 @@
   @media (max-width:480px){ .infos-facts{grid-template-columns:1fr;} }
   .infos-facts .eyebrow{margin-bottom:6px;}
   .infos-facts .stars{color:var(--brass); letter-spacing:0.1em;}
-  .infos-facts p{font-size:0.9rem; color:#3a4244;}
+  .infos-facts p{font-size:0.9rem; color:#000000;}
   .access-item{padding:14px 0; border-top:1px solid #eee6d5;}
   .access-item:first-child{border-top:none; padding-top:0;}
   .access-name{font-size:0.92rem; font-weight:500; display:flex; align-items:baseline; gap:8px;}
   .access-name .ico{color:var(--brass); font-size:0.8rem;}
-  .access-dist{font-size:0.85rem; color:#8a8172; margin-top:4px; display:flex; align-items:baseline; gap:8px;}
-  .access-dist .ico{color:#b3a893; font-size:0.8rem;}
+  .access-dist{font-size:0.85rem; color:#000000; margin-top:4px; display:flex; align-items:baseline; gap:8px;}
+  .access-dist .ico{color:#000000; font-size:0.8rem;}
 
   /* ---------- Footer ---------- */
   footer{background:var(--ink); color:var(--sand); padding:64px 0 28px;}
@@ -419,12 +445,14 @@
   <nav class="nav">
     <a href="#top" class="logo">La Pierre <span>de Lisse</span></a>
     <div class="nav-links">
-      <a href="#top">Accueil</a>
-      <a href="#chambres">Chambres &amp; Suites</a>
-      <a href="#seminaires">Séminaires</a>
-      <a href="#restaurants">Restaurants</a>
-      <a href="#activites">Activités</a>
-      <a href="#contact">Contact</a>
+      <div class="nav-links-main">
+        <a href="#top">Accueil</a>
+        <a href="#chambres">Chambres &amp; Suites</a>
+        <a href="#seminaires">Séminaires &amp; banquets</a>
+        <a href="#restaurants">Restaurants</a>
+        <a href="#activites">Activités</a>
+        <a href="#contact">Contact</a>
+      </div>
       <a class="cta" id="nav-wa-cta" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20une%20chambre%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Réserver sur WhatsApp</a>
     </div>
   </nav>
@@ -486,7 +514,7 @@
     </div>
     <div class="reveal">
       <p id="intro-text">La Pierre de Lisse propose 28 cases climatisées, individuelles ou familiales, aux murs en pierre de taille et toits de chaume, disséminées dans un grand jardin exotique de quatre hectares arboré et fleuri — chacune avec sa terrasse privative et un accès wifi. De la chambre simple à la suite familiale, plusieurs formules sont possibles.</p>
-      <p id="intro-text-2" style="margin-top:14px; color:#3a4244; font-size:1.02rem; max-width:52ch;">Une nouvelle bâtisse récemment érigée propose 60 chambres modernes, dont 6 suites, ainsi qu'une salle polyvalente — un cadre idéal pour séminaires, ateliers, colonies de vacances, mariages et autres cérémonies.</p>
+      <p id="intro-text-2" style="margin-top:14px; color:#000000; font-size:1.02rem; max-width:52ch;">Une nouvelle bâtisse récemment érigée propose 60 chambres modernes, dont 6 suites, ainsi qu'une salle polyvalente — un cadre idéal pour séminaires, ateliers, colonies de vacances, mariages et autres cérémonies.</p>
       <div class="intro-figures">
         <div class="fig"><div class="num mono">88</div><div class="lab">chambres &amp; cases</div></div>
         <div class="fig"><div class="num mono">4 ha</div><div class="lab">jardin exotique</div></div>
@@ -504,9 +532,9 @@
       <h2>Les chambres.</h2>
     </div>
     <div class="reveal" style="max-width:640px; margin:-24px 0 44px;">
-      <p style="color:#3a4244; font-size:1rem; margin-bottom:14px;">La Pierre de Lisse dispose de deux types d'hébergements : 28 cases traditionnelles climatisées, réparties dans un jardin exotique de quatre hectares, et 60 chambres modernes climatisées.</p>
-      <p style="color:#3a4244; font-size:1rem; margin-bottom:14px;">Chaque chambre est équipée d'une salle de bain privative, d'un téléviseur et de la climatisation. Le complexe propose également des appartements et des lofts pour des séjours en toute autonomie.</p>
-      <p style="color:#3a4244; font-size:1rem;">Les chambres offrent un bon niveau de confort avec une literie de qualité et des équipements fonctionnels. Le petit déjeuner est inclus dans le tarif.</p>
+      <p style="color:#000000; font-size:1rem; margin-bottom:14px;">La Pierre de Lisse dispose de deux types d'hébergements : 28 cases traditionnelles climatisées, réparties dans un jardin exotique de quatre hectares, et 60 chambres modernes climatisées.</p>
+      <p style="color:#000000; font-size:1rem; margin-bottom:14px;">Chaque chambre est équipée d'une salle de bain privative, d'un téléviseur et de la climatisation. Le complexe propose également des appartements et des lofts pour des séjours en toute autonomie.</p>
+      <p style="color:#000000; font-size:1rem;">Les chambres offrent un bon niveau de confort avec une literie de qualité et des équipements fonctionnels. Le petit déjeuner est inclus dans le tarif.</p>
     </div>
     <div class="tariff-grid" id="tariff-grid">
       <div class="tariff-card reveal">
@@ -555,7 +583,7 @@
       </div>
     </div>
 
-    <p style="margin-top:36px; font-size:0.82rem; color:#8a8172; letter-spacing:0.06em; text-transform:uppercase;">Nouvelle bâtisse</p>
+    <p style="margin-top:36px; font-size:0.82rem; color:#000000; letter-spacing:0.06em; text-transform:uppercase;">Nouvelle bâtisse</p>
     <div class="tariff-grid" style="margin-top:14px;">
       <div class="tariff-card reveal">
         <div class="room-thumb" data-tag="Nouvelle bâtisse" style="background-image:url('content/images/uploads/chambre-moderne.jpg'); background-size:cover; background-position:center;"></div>
@@ -594,7 +622,55 @@
         </div>
       </div>
     </div>
-    <p style="margin-top:20px; font-size:0.82rem; color:#8a8172;">Tarifs indicatifs, par personne, selon le type de chambre et la formule choisie.</p>
+    <p style="margin-top:20px; font-size:0.82rem; color:#000000;">Tarifs indicatifs, par personne, selon le type de chambre et la formule choisie.</p>
+  </div>
+</section>
+
+<section class="deepdive" id="seminaires">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Séminaires &amp; banquets</div>
+      <div class="rule"></div>
+      <h2>Un cadre d'exception pour vos événements.</h2>
+    </div>
+    <div class="deepdive-grid reveal">
+      <div class="deepdive-media" style="background-image:linear-gradient(160deg, #2a5b58, #b9924f 130%);">
+        <span class="placeholder-tag">Photo de la salle à venir</span>
+      </div>
+      <div class="deepdive-text">
+        <h3>Une salle polyvalente pensée pour marquer les esprits</h3>
+        <p>Au cœur de la nouvelle bâtisse, notre salle polyvalente accueille vos événements dans un cadre à la fois spacieux et chaleureux — à deux pas du jardin exotique et de l'océan.</p>
+        <p>Séminaires d'entreprise, ateliers de formation, colonies de vacances, mariages et cérémonies : l'espace s'adapte à vos besoins, avec la possibilité d'organiser la restauration et l'hébergement de vos invités sur place.</p>
+        <p>Contactez-nous pour discuter de votre événement et recevoir un devis personnalisé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deepdive alt" id="restaurants">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Restaurants</div>
+      <div class="rule"></div>
+      <h2>Entre piscine et plage.</h2>
+    </div>
+    <div class="deepdive-grid reverse reveal">
+      <div class="deepdive-media" style="background-image:linear-gradient(160deg, #b9924f, #1e4547 130%);">
+        <span class="placeholder-tag">Photo du restaurant à venir</span>
+      </div>
+      <div class="deepdive-text">
+        <h3>Une table posée entre la piscine et la plage</h3>
+        <p>Notre restaurant vous accueille pour des repas copieux à toute heure, avec vue sur le jardin exotique — à quelques pas de la piscine à débordement et de l'accès direct à la plage.</p>
+        <p>En soirée, nos bars prennent le relais pour un moment de détente, entre amis ou en famille.</p>
+        <div class="deepdive-bars">
+          <div class="lab">Nos bars</div>
+          <ul>
+            <li>[Nom du bar — à compléter]</li>
+            <li>[Nom du bar — à compléter]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -611,22 +687,22 @@
       <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">01</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Piscine extérieure</h3>
-        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Grande piscine avec transats et paillotes, ouverte du matin au soir.</p>
+        <p style="color:#000000; font-size:0.9rem; margin-top:8px;">Grande piscine avec transats et paillotes, ouverte du matin au soir.</p>
       </div>
-      <div class="reveal" id="restaurants" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">02</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Restaurant &amp; bar</h3>
-        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Repas copieux et bar d'ambiance, pour un déjeuner comme pour une soirée.</p>
+        <p style="color:#000000; font-size:0.9rem; margin-top:8px;">Repas copieux et bar d'ambiance, pour un déjeuner comme pour une soirée.</p>
       </div>
-      <div class="reveal" id="seminaires" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">03</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Salle polyvalente</h3>
-        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Un espace idéal pour séminaires, ateliers, colonies de vacances, mariages et cérémonies.</p>
+        <p style="color:#000000; font-size:0.9rem; margin-top:8px;">Un espace idéal pour séminaires, ateliers, colonies de vacances, mariages et cérémonies.</p>
       </div>
       <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">04</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Plage &amp; excursions</h3>
-        <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Accès direct à la plage et propositions d'excursions sur la Petite Côte.</p>
+        <p style="color:#000000; font-size:0.9rem; margin-top:8px;">Accès direct à la plage et propositions d'excursions sur la Petite Côte.</p>
       </div>
     </div>
   </div>
@@ -794,7 +870,7 @@
         <div class="who">Fatou S. — voyage entre amis</div>
       </div>
     </div>
-    <p style="margin-top:20px; font-size:0.8rem; color:#8a8172;" id="avis-fallback-note">Avis d'exemple — à remplacer par vos vrais avis clients.</p>
+    <p style="margin-top:20px; font-size:0.8rem; color:#000000;" id="avis-fallback-note">Avis d'exemple — à remplacer par vos vrais avis clients.</p>
   </div>
 </section>
 
