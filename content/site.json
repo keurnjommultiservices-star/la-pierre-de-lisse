@@ -1,17 +1,14 @@
 {
-  "hero_eyebrow": "Popenguine-Ndayane · Petite Côte · Sénégal",
-  "hero_title_line1": "La brousse a",
-  "hero_title_em": "son confort.",
-  "hero_text": "La Pierre de Lisse, hôtel-résidence posé sur la Petite Côte, à quelques minutes de Toubab Dialaw, où chaque matinée commence face à l'océan.",
-  "intro_text": "La Pierre de Lisse propose 28 cases climatisées, individuelles ou familiales, aux murs en pierre de taille et toits de chaume, disséminées dans un grand jardin exotique de quatre hectares arboré et fleuri — chacune avec sa terrasse privative et un accès wifi. De la chambre simple à la suite familiale, plusieurs formules sont possibles.",
-  "intro_text_2": "Une nouvelle bâtisse récemment érigée propose 60 chambres modernes, dont 6 suites, ainsi qu'une salle polyvalente — un cadre idéal pour séminaires, ateliers, colonies de vacances, mariages et autres cérémonies.",
-  "footer_tagline": "La brousse a son confort.",
   "contact": {
     "whatsapp": "221772465628",
     "tel_fixe": "+221 33 957 71 48",
     "email": "reservation@lapierredelisse-demo.sn",
     "adresse": "Popenguine-Ndayane, Petite Côte, Sénégal — à proximité de Toubab Dialaw. Hôtel-résidence de 28 cases et 60 chambres face à l'Atlantique."
   },
+  "intro_text": "La Pierre de Lisse propose 28 cases climatisées, individuelles ou familiales, aux murs en pierre de taille et toits de chaume, disséminées dans un grand jardin exotique de quatre hectares arboré et fleuri — chacune avec sa terrasse privative et un accès wifi. De la chambre simple à la suite familiale, plusieurs formules sont possibles.",
+  "hero_eyebrow": "Popenguine-Ndayane · Petite Côte · Sénégal",
+  "avis_note_moyenne": 4.9,
+  "footer_tagline": "La brousse a son confort.",
   "tarifs": [
     {
       "nom": "Bungalow Standard",
@@ -30,40 +27,102 @@
       "dp_enfant": 30000
     }
   ],
-  "galerie": [
-    { "legende": "Piscine à débordement", "image": "content/images/uploads/hero-vue-de-haut.jpg" },
-    { "legende": "Bungalow Grand Confort", "image": "" },
-    { "legende": "Terrasse au coucher du soleil", "image": "" },
-    { "legende": "Table du chef", "image": "" },
-    { "legende": "Bungalow Standard", "image": "" },
-    { "legende": "Accès plage privé", "image": "" },
-    { "legende": "Allée principale, de nuit", "image": "content/images/uploads/allee-nuit.jpg" }
-  ],
-  "photos_libres": [],
-  "highlights": [
-    { "mot": "Évasion", "sous_titre": "Face à l'océan", "image": "" },
-    { "mot": "Confort", "sous_titre": "Dans chaque chambre", "image": "" },
-    { "mot": "Sérénité", "sous_titre": "Jardin de 4 hectares", "image": "" }
-  ],
+  "hero_title_line1": "La brousse a",
+  "hero_text": "La Pierre de Lisse, hôtel-résidence posé sur la Petite Côte, à quelques minutes de Toubab Dialaw, où chaque matinée commence face à l'océan.",
+  "intro_text_2": "Une nouvelle bâtisse récemment érigée propose 60 chambres modernes, dont 6 suites, ainsi qu'une salle polyvalente — un cadre idéal pour séminaires, ateliers, colonies de vacances, mariages et autres cérémonies.",
+  "hero_title_em": "son confort.",
+  "restaurants": {
+    "titre": "Une table posée entre la piscine et la plage",
+    "texte": "Notre restaurant vous accueille pour des repas copieux à toute heure, avec vue sur le jardin exotique — à quelques pas de la piscine à débordement et de l'accès direct à la plage.\n\nEn soirée, nos bars prennent le relais pour un moment de détente, entre amis ou en famille.",
+    "image": "",
+    "bars": [
+      "[Nom du bar — à compléter]",
+      "[Nom du bar — à compléter]"
+    ]
+  },
   "seminaires": {
     "titre": "Une salle polyvalente pensée pour marquer les esprits",
     "texte": "Au cœur de la nouvelle bâtisse, notre salle polyvalente accueille vos événements dans un cadre à la fois spacieux et chaleureux — à deux pas du jardin exotique et de l'océan.\n\nSéminaires d'entreprise, ateliers de formation, colonies de vacances, mariages et cérémonies : l'espace s'adapte à vos besoins, avec la possibilité d'organiser la restauration et l'hébergement de vos invités sur place.\n\nContactez-nous pour discuter de votre événement et recevoir un devis personnalisé.",
     "image": ""
   },
-  "restaurants": {
-    "titre": "Une table posée entre la piscine et la plage",
-    "texte": "Notre restaurant vous accueille pour des repas copieux à toute heure, avec vue sur le jardin exotique — à quelques pas de la piscine à débordement et de l'accès direct à la plage.\n\nEn soirée, nos bars prennent le relais pour un moment de détente, entre amis ou en famille.",
-    "image": "",
-    "bars": ["[Nom du bar — à compléter]", "[Nom du bar — à compléter]"]
-  },
   "activites": {
     "texte": "Renforcez votre équipe avec nos activités. Unissez vos collaborateurs et créez des liens solides.\n\nNos activités de Team-Building offrent des expériences uniques pour renforcer la cohésion d'équipe, favoriser la communication et stimuler la collaboration au sein de votre structure. Des défis passionnants, des jeux interactifs et des activités divertissantes sont soigneusement conçus pour répondre aux besoins de votre entreprise.\n\nQue vous souhaitiez motiver votre équipe, améliorer l'esprit d'équipe ou encourager la créativité, nos programmes de Team Building sont conçus pour vous aider à atteindre vos objectifs. Offrez à votre équipe une expérience mémorable qui favorisera la collaboration et la synergie entre les membres.",
-    "liste": ["Jeux « Langua burii »", "Match de foot", "Lutte traditionnelle", "Course avec ballon", "Balle au pot", "Portrait chinois", "Jeux de corde", "Jeux d'intelligence", "Volleyball", "Pétanque"]
+    "liste": [
+      "Jeux « Langua burii »",
+      "Match de foot",
+      "Lutte traditionnelle",
+      "Course avec ballon",
+      "Balle au pot",
+      "Portrait chinois",
+      "Jeux de corde",
+      "Jeux d'intelligence",
+      "Volleyball",
+      "Pétanque"
+    ]
   },
-  "avis_note_moyenne": 4.9,
+  "photos_libres": [],
+  "galerie": [
+    {
+      "legende": "Piscine à débordement",
+      "image": "content/images/uploads/hero-vue-de-haut.jpg"
+    },
+    {
+      "legende": "Bungalow Grand Confort",
+      "image": ""
+    },
+    {
+      "legende": "Terrasse au coucher du soleil",
+      "image": ""
+    },
+    {
+      "legende": "Table du chef",
+      "image": ""
+    },
+    {
+      "legende": "Bungalow Standard",
+      "image": ""
+    },
+    {
+      "legende": "Accès plage privé",
+      "image": ""
+    },
+    {
+      "legende": "Allée principale, de nuit",
+      "image": "content/images/uploads/allee-nuit.jpg"
+    }
+  ],
   "avis": [
-    { "nom": "Aïcha D. — séjour en famille", "note": 5, "texte": "Un accueil très chaleureux, la piscine et la plage à deux pas, on s'est sentis chez nous du premier au dernier jour." },
-    { "nom": "Moussa K. — séjour en couple", "note": 5, "texte": "Cadre magnifique, chambres propres et bien climatisées, et le restaurant est excellent. On reviendra !" },
-    { "nom": "Fatou S. — voyage entre amis", "note": 4, "texte": "Très bon rapport qualité-prix pour la Petite Côte, personnel disponible et à l'écoute." }
+    {
+      "nom": "Aïcha D. — séjour en famille",
+      "note": 5,
+      "texte": "Un accueil très chaleureux, la piscine et la plage à deux pas, on s'est sentis chez nous du premier au dernier jour."
+    },
+    {
+      "nom": "Moussa K. — séjour en couple",
+      "note": 5,
+      "texte": "Cadre magnifique, chambres propres et bien climatisées, et le restaurant est excellent. On reviendra !"
+    },
+    {
+      "nom": "Fatou S. — voyage entre amis",
+      "note": 4,
+      "texte": "Très bon rapport qualité-prix pour la Petite Côte, personnel disponible et à l'écoute."
+    }
+  ],
+  "highlights": [
+    {
+      "mot": "Évasion",
+      "sous_titre": "Face à l'océan",
+      "image": "content/images/uploads/allee-nuit.jpg"
+    },
+    {
+      "mot": "Confort",
+      "sous_titre": "Dans chaque chambre",
+      "image": "content/images/uploads/bungalow-2.jpg"
+    },
+    {
+      "mot": "Sérénité",
+      "sous_titre": "Jardin de 4 hectares",
+      "image": "content/images/uploads/hero-vue-de-haut.jpg"
+    }
   ]
 }
