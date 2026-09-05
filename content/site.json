@@ -41,9 +41,9 @@
   ],
   "photos_libres": [],
   "highlights": [
-    { "mot": "Évasion", "sous_titre": "Face à l'océan" },
-    { "mot": "Confort", "sous_titre": "Dans chaque chambre" },
-    { "mot": "Sérénité", "sous_titre": "Jardin de 4 hectares" }
+    { "mot": "Évasion", "sous_titre": "Face à l'océan", "image": "" },
+    { "mot": "Confort", "sous_titre": "Dans chaque chambre", "image": "" },
+    { "mot": "Sérénité", "sous_titre": "Jardin de 4 hectares", "image": "" }
   ],
   "seminaires": {
     "titre": "Une salle polyvalente pensée pour marquer les esprits",
