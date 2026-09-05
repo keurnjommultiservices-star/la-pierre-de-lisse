@@ -36,7 +36,8 @@
     { "legende": "Terrasse au coucher du soleil", "image": "" },
     { "legende": "Table du chef", "image": "" },
     { "legende": "Bungalow Standard", "image": "" },
-    { "legende": "Accès plage privé", "image": "" }
+    { "legende": "Accès plage privé", "image": "" },
+    { "legende": "Allée principale, de nuit", "image": "content/images/uploads/allee-nuit.jpg" }
   ],
   "photos_libres": [],
   "highlights": [
