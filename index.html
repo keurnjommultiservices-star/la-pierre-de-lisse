@@ -153,6 +153,29 @@
     .photo-marquee-track img{ height:150px; width:220px; }
   }
 
+  /* ---------- Moments forts (3 photos) ---------- */
+  .highlights{background:var(--ivory); padding:20px 0 90px;}
+  .highlights-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:760px){ .highlights-grid{grid-template-columns:1fr;} }
+  .highlight-card{
+    position:relative; height:420px; border-radius:2px; overflow:hidden;
+    background-size:cover; background-position:center;
+    display:flex; align-items:flex-end;
+  }
+  @media (max-width:760px){ .highlight-card{height:340px;} }
+  .highlight-card::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(16,24,27,0) 35%, rgba(16,24,27,0.78) 100%);
+  }
+  .highlight-content{position:relative; z-index:1; padding:26px;}
+  .highlight-word{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:2.1rem; color:#fff; line-height:1.1;
+  }
+  .highlight-sub{
+    font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--brass-light); margin-top:8px;
+  }
+
   /* ---------- Intro ---------- */
   .intro{background:var(--ivory);}
   .intro-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
@@ -277,6 +300,23 @@
   .comm-cell p{color:#6b6357; font-size:0.9rem; max-width:34ch;}
   .comm-cell.dark p{color:var(--teal-mist);}
 
+  /* ---------- Activités ---------- */
+  .activites{background:#fff;}
+  .activites-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  @media (max-width:760px){ .activites-grid{grid-template-columns:1fr; gap:32px;} }
+  .activites-intro p{color:#3a4244; font-size:1rem; margin-bottom:14px;}
+  .activites-intro p:last-child{margin-bottom:0;}
+  .activites-list{list-style:none;}
+  .activites-list li{
+    font-size:0.98rem; color:#3a4244; padding:10px 0 10px 20px; position:relative;
+    border-top:1px solid #eee6d5;
+  }
+  .activites-list li:first-child{border-top:none;}
+  .activites-list li::before{
+    content:''; position:absolute; left:0; top:1.15em; width:6px; height:6px; border-radius:50%; background:var(--brass);
+  }
+  .activites-note{margin-top:16px; font-size:0.88rem; color:var(--teal-deep); font-style:italic;}
+
   /* ---------- Avis ---------- */
   .avis{background:#fff;}
   .avis-summary{
@@ -379,10 +419,11 @@
   <nav class="nav">
     <a href="#top" class="logo">La Pierre <span>de Lisse</span></a>
     <div class="nav-links">
-      <a href="#chambres">Chambres</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#avis">Avis</a>
-      <a href="#reserver">Réserver</a>
+      <a href="#top">Accueil</a>
+      <a href="#chambres">Chambres &amp; Suites</a>
+      <a href="#seminaires">Séminaires</a>
+      <a href="#restaurants">Restaurants</a>
+      <a href="#activites">Activités</a>
       <a href="#contact">Contact</a>
       <a class="cta" id="nav-wa-cta" href="https://wa.me/221772465628?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20une%20chambre%20%C3%A0%20La%20Pierre%20de%20Lisse" target="_blank" rel="noopener">Réserver sur WhatsApp</a>
     </div>
@@ -412,6 +453,31 @@
   </div>
 </section>
 
+<section class="highlights">
+  <div class="wrap">
+    <div class="highlights-grid">
+      <div class="highlight-card reveal" style="background-image:url('content/images/uploads/hero-vue-de-haut.jpg');">
+        <div class="highlight-content">
+          <div class="highlight-word">Évasion</div>
+          <div class="highlight-sub">Face à l'océan</div>
+        </div>
+      </div>
+      <div class="highlight-card reveal" style="background-image:url('content/images/uploads/chambre-moderne.jpg');">
+        <div class="highlight-content">
+          <div class="highlight-word">Confort</div>
+          <div class="highlight-sub">Dans chaque chambre</div>
+        </div>
+      </div>
+      <div class="highlight-card reveal" style="background-image:linear-gradient(160deg, #1e4547, #8fb3ae 65%, #d9b877 130%);">
+        <div class="highlight-content">
+          <div class="highlight-word">Sérénité</div>
+          <div class="highlight-sub">Jardin de 4 hectares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="intro">
   <div class="wrap intro-grid">
     <div class="reveal">
@@ -433,9 +499,14 @@
 <section class="rooms" id="chambres">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Chambres &amp; services</div>
+      <div class="eyebrow">Chambres &amp; Suites</div>
       <div class="rule"></div>
-      <h2>Trois façons d'habiter la baie.</h2>
+      <h2>Les chambres.</h2>
+    </div>
+    <div class="reveal" style="max-width:640px; margin:-24px 0 44px;">
+      <p style="color:#3a4244; font-size:1rem; margin-bottom:14px;">La Pierre de Lisse dispose de deux types d'hébergements : 28 cases traditionnelles climatisées, réparties dans un jardin exotique de quatre hectares, et 60 chambres modernes climatisées.</p>
+      <p style="color:#3a4244; font-size:1rem; margin-bottom:14px;">Chaque chambre est équipée d'une salle de bain privative, d'un téléviseur et de la climatisation. Le complexe propose également des appartements et des lofts pour des séjours en toute autonomie.</p>
+      <p style="color:#3a4244; font-size:1rem;">Les chambres offrent un bon niveau de confort avec une literie de qualité et des équipements fonctionnels. Le petit déjeuner est inclus dans le tarif.</p>
     </div>
     <div class="tariff-grid" id="tariff-grid">
       <div class="tariff-card reveal">
@@ -483,6 +554,46 @@
         </div>
       </div>
     </div>
+
+    <p style="margin-top:36px; font-size:0.82rem; color:#8a8172; letter-spacing:0.06em; text-transform:uppercase;">Nouvelle bâtisse</p>
+    <div class="tariff-grid" style="margin-top:14px;">
+      <div class="tariff-card reveal">
+        <div class="room-thumb" data-tag="Nouvelle bâtisse" style="background-image:url('content/images/uploads/chambre-moderne.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="tariff-body">
+          <h3>Chambre moderne</h3>
+          <p class="tariff-note">Chambre climatisée avec salle de bain privative, dans la nouvelle bâtisse.</p>
+          <ul class="infos-list" style="margin:14px 0 18px;">
+            <li>Salle de bain privative</li>
+            <li>Téléviseur</li>
+            <li>Climatisation</li>
+            <li>Literie de qualité</li>
+          </ul>
+          <div class="tariff-row">
+            <div class="tariff-label">Tarif</div>
+            <div class="tariff-amounts"><div class="price" style="color:var(--brass);">Sur demande</div></div>
+          </div>
+          <a class="room-link" href="#reserver">Réserver →</a>
+        </div>
+      </div>
+      <div class="tariff-card reveal">
+        <div class="room-thumb r1" data-tag="Nouvelle bâtisse"></div>
+        <div class="tariff-body">
+          <h3>Suite</h3>
+          <p class="tariff-note">L'une des 6 suites de la nouvelle bâtisse, plus spacieuse et raffinée.</p>
+          <ul class="infos-list" style="margin:14px 0 18px;">
+            <li>Climatisation</li>
+            <li>Rideaux occultants</li>
+            <li>Penderie</li>
+            <li>TV par câble / satellite</li>
+          </ul>
+          <div class="tariff-row">
+            <div class="tariff-label">Tarif</div>
+            <div class="tariff-amounts"><div class="price" style="color:var(--brass);">Sur demande</div></div>
+          </div>
+          <a class="room-link" href="#reserver">Réserver →</a>
+        </div>
+      </div>
+    </div>
     <p style="margin-top:20px; font-size:0.82rem; color:#8a8172;">Tarifs indicatifs, par personne, selon le type de chambre et la formule choisie.</p>
   </div>
 </section>
@@ -502,12 +613,12 @@
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Piscine extérieure</h3>
         <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Grande piscine avec transats et paillotes, ouverte du matin au soir.</p>
       </div>
-      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+      <div class="reveal" id="restaurants" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">02</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Restaurant &amp; bar</h3>
         <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Repas copieux et bar d'ambiance, pour un déjeuner comme pour une soirée.</p>
       </div>
-      <div class="reveal" style="border-top:1px solid #e6e0d2; padding-top:20px;">
+      <div class="reveal" id="seminaires" style="border-top:1px solid #e6e0d2; padding-top:20px;">
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">03</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Salle polyvalente</h3>
         <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Un espace idéal pour séminaires, ateliers, colonies de vacances, mariages et cérémonies.</p>
@@ -516,6 +627,38 @@
         <div class="eyebrow" style="display:inline-block; background:var(--green-bold); color:#fff; padding:6px 14px; border-radius:3px; font-weight:700;">04</div>
         <h3 style="font-size:1.05rem; margin-top:8px; font-weight:500;">Plage &amp; excursions</h3>
         <p style="color:#6b6357; font-size:0.9rem; margin-top:8px;">Accès direct à la plage et propositions d'excursions sur la Petite Côte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="activites" id="activites">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Activités</div>
+      <div class="rule"></div>
+      <h2>Nos activités &amp; Team-building.</h2>
+    </div>
+    <div class="activites-grid">
+      <div class="activites-intro reveal">
+        <p><strong>Renforcez votre équipe avec nos activités.</strong> Unissez vos collaborateurs et créez des liens solides.</p>
+        <p>Nos activités de Team-Building offrent des expériences uniques pour renforcer la cohésion d'équipe, favoriser la communication et stimuler la collaboration au sein de votre structure. Des défis passionnants, des jeux interactifs et des activités divertissantes sont soigneusement conçus pour répondre aux besoins de votre entreprise.</p>
+        <p>Que vous souhaitiez motiver votre équipe, améliorer l'esprit d'équipe ou encourager la créativité, nos programmes de Team Building sont conçus pour vous aider à atteindre vos objectifs. Offrez à votre équipe une expérience mémorable qui favorisera la collaboration et la synergie entre les membres.</p>
+      </div>
+      <div class="reveal">
+        <ul class="activites-list">
+          <li>Jeux « Langua burii »</li>
+          <li>Match de foot</li>
+          <li>Lutte traditionnelle</li>
+          <li>Course avec ballon</li>
+          <li>Balle au pot</li>
+          <li>Portrait chinois</li>
+          <li>Jeux de corde</li>
+          <li>Jeux d'intelligence</li>
+          <li>Volleyball</li>
+          <li>Pétanque</li>
+        </ul>
+        <p class="activites-note">Et bien d'autres activités sur demande.</p>
       </div>
     </div>
   </div>
@@ -583,6 +726,8 @@
           <select id="room">
             <option>Bungalow Standard</option>
             <option>Bungalow Grand Confort</option>
+            <option>Chambre moderne</option>
+            <option>Suite</option>
           </select>
         </div>
         <div class="field bsub">
@@ -869,7 +1014,10 @@
 
         // Synchronise le sélecteur de chambres du formulaire de réservation
         const roomSelect = document.getElementById('room');
-        if (roomSelect) roomSelect.innerHTML = data.tarifs.map(t => `<option>${t.nom}</option>`).join('');
+        if (roomSelect) {
+          roomSelect.innerHTML = data.tarifs.map(t => `<option>${t.nom}</option>`).join('')
+            + '<option>Chambre moderne</option><option>Suite</option>';
+        }
       }
 
       // Galerie (photos légendées + photos supplémentaires sans légende)
