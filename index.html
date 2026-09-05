@@ -82,44 +82,32 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    position:relative; min-height:100svh; display:flex; align-items:flex-end;
-    background:
-      linear-gradient(180deg, rgba(16,24,27,0.25) 0%, rgba(16,24,27,0.35) 45%, rgba(16,24,27,0.82) 100%),
-      url('content/images/uploads/hero-vue-de-haut.jpg') center 30% / cover no-repeat,
-      linear-gradient(180deg, #142a2c 0%, #1e4547 42%, #2a5b58 62%, #b9924f 100%);
-    overflow:hidden;
-    color:var(--ivory);
+    position:relative; background:var(--ink); color:var(--ivory); overflow:hidden;
+    padding:0;
   }
-  .hero::before{ /* sun — masqué au profit de la photo réelle */
-    content:''; display:none;
+  section.hero{padding:0;}
+  .hero-topbar{
+    padding:calc(96px + 4vw) 0 40px; position:relative; z-index:2;
   }
-  .horizon{
-    position:absolute; left:0; right:0; top:58%; height:1px; background:rgba(245,241,230,0.55);
-    display:none;
-  }
-  .hero-waves{
-    position:absolute; left:0; right:0; bottom:0; width:100%; opacity:0.9;
-  }
-  .hero-content{
-    position:relative; z-index:2; padding:0 clamp(20px,5vw,64px) 90px; width:100%;
-  }
+  .hero-highlights{ padding-bottom:70px; position:relative; z-index:2; }
+  .hero-waves{ position:relative; display:block; width:100%; height:100px; margin-top:-1px; }
   .hero-eyebrow{
     display:inline-block; font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase;
     color:#fff; opacity:1; margin-bottom:18px; font-weight:700;
     background:var(--green-bold); padding:8px 18px; border-radius:3px;
   }
   .hero h1{
-    font-size:clamp(2.4rem, 6vw, 4.6rem); font-weight:400; max-width:14ch; line-height:1.04;
+    font-size:clamp(2.2rem, 5vw, 3.8rem); font-weight:400; max-width:16ch; line-height:1.04;
     color:#fff;
   }
   .hero h1 em{font-style:italic; color:var(--brass-light);}
   .hero p{
-    display:inline-block; margin-top:22px; max-width:44ch; font-size:1.02rem; color:#fff; font-weight:500;
+    display:inline-block; margin-top:22px; max-width:52ch; font-size:1.02rem; color:#fff; font-weight:500;
     background:var(--green-bold); padding:14px 20px; border-radius:3px; line-height:1.5;
   }
-  .hero-actions{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
+  .hero-actions{ display:flex; gap:16px; margin-top:32px; flex-wrap:wrap; }
   .btn-ghost{
-    border:1px solid rgba(245,241,230,0.5); padding:12px 22px; border-radius:2px; font-size:0.9rem;
+    border:1px solid rgba(245,241,230,0.5); padding:12px 22px; border-radius:2px; font-size:0.9rem; color:#fff;
     transition:border-color .25s ease, background .25s ease;
   }
   .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,0.06);}
@@ -155,20 +143,24 @@
   }
 
   /* ---------- Moments forts (3 photos) ---------- */
-  .highlights{background:var(--ivory); padding:20px 0 90px;}
   .highlights-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   @media (max-width:760px){ .highlights-grid{grid-template-columns:1fr;} }
   .highlight-card{
     position:relative; height:420px; border-radius:2px; overflow:hidden;
-    background-size:cover; background-position:center;
     display:flex; align-items:flex-end;
+    background:linear-gradient(160deg, #1e4547, #8fb3ae 65%, #d9b877 130%);
   }
   @media (max-width:760px){ .highlight-card{height:340px;} }
-  .highlight-card::after{
-    content:''; position:absolute; inset:0;
+  .hl-bg{
+    position:absolute; inset:0; background-size:cover; background-position:center;
+    opacity:0; transition:opacity 1.1s ease; z-index:0;
+  }
+  .hl-bg.active{opacity:1;}
+  .highlight-card::before{
+    content:''; position:absolute; inset:0; z-index:1;
     background:linear-gradient(180deg, rgba(16,24,27,0) 35%, rgba(16,24,27,0.78) 100%);
   }
-  .highlight-content{position:relative; z-index:1; padding:26px;}
+  .highlight-content{position:relative; z-index:2; padding:26px;}
   .highlight-word{
     font-family:'Fraunces',serif; font-style:italic; font-weight:700; font-size:2.8rem; color:#fff; line-height:1.1;
   }
@@ -459,12 +451,7 @@
 </header>
 
 <section class="hero" id="top">
-  <div class="horizon"></div>
-  <svg class="hero-waves" viewBox="0 0 1440 140" preserveAspectRatio="none" style="height:140px;">
-    <path d="M0,70 C240,110 480,20 720,60 C960,100 1200,30 1440,70 L1440,140 L0,140 Z" fill="rgba(16,24,27,0.55)"/>
-    <path d="M0,90 C260,50 500,120 760,80 C1020,40 1260,110 1440,90 L1440,140 L0,140 Z" fill="rgba(16,24,27,0.85)"/>
-  </svg>
-  <div class="hero-content">
+  <div class="wrap hero-topbar">
     <div class="hero-eyebrow" id="hero-eyebrow">Popenguine-Ndayane · Petite Côte · Sénégal</div>
     <h1><span id="hero-title-line1">La brousse a</span><br><em id="hero-title-em">son confort.</em></h1>
     <p id="hero-text">La Pierre de Lisse, hôtel-résidence posé sur la Petite Côte, à quelques minutes de Toubab Dialaw, où chaque matinée commence face à l'océan.</p>
@@ -473,36 +460,42 @@
       <a class="btn-ghost" href="#chambres">Découvrir les chambres</a>
     </div>
   </div>
+
+  <div class="wrap hero-highlights">
+    <div class="highlights-grid" id="hero-highlights-grid">
+      <div class="highlight-card reveal">
+        <div class="hl-bg"></div>
+        <div class="highlight-content">
+          <div class="highlight-word" id="hl-word-1">Évasion</div>
+          <div class="highlight-sub" id="hl-sub-1">Face à l'océan</div>
+        </div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="hl-bg"></div>
+        <div class="highlight-content">
+          <div class="highlight-word" id="hl-word-2">Confort</div>
+          <div class="highlight-sub" id="hl-sub-2">Dans chaque chambre</div>
+        </div>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="hl-bg"></div>
+        <div class="highlight-content">
+          <div class="highlight-word" id="hl-word-3">Sérénité</div>
+          <div class="highlight-sub" id="hl-sub-3">Jardin de 4 hectares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="hero-waves" viewBox="0 0 1440 140" preserveAspectRatio="none">
+    <path d="M0,70 C240,110 480,20 720,60 C960,100 1200,30 1440,70 L1440,140 L0,140 Z" fill="rgba(16,24,27,0.55)"/>
+    <path d="M0,90 C260,50 500,120 760,80 C1020,40 1260,110 1440,90 L1440,140 L0,140 Z" fill="rgba(16,24,27,0.85)"/>
+  </svg>
 </section>
 
 <section class="photo-marquee-section" id="marquee-section" style="display:none;">
   <div class="photo-marquee">
     <div class="photo-marquee-track" id="marquee-track"></div>
-  </div>
-</section>
-
-<section class="highlights">
-  <div class="wrap">
-    <div class="highlights-grid">
-      <div class="highlight-card reveal" style="background-image:url('content/images/uploads/hero-vue-de-haut.jpg');">
-        <div class="highlight-content">
-          <div class="highlight-word">Évasion</div>
-          <div class="highlight-sub">Face à l'océan</div>
-        </div>
-      </div>
-      <div class="highlight-card reveal" style="background-image:url('content/images/uploads/chambre-moderne.jpg');">
-        <div class="highlight-content">
-          <div class="highlight-word">Confort</div>
-          <div class="highlight-sub">Dans chaque chambre</div>
-        </div>
-      </div>
-      <div class="highlight-card reveal" style="background-image:linear-gradient(160deg, #1e4547, #8fb3ae 65%, #d9b877 130%);">
-        <div class="highlight-content">
-          <div class="highlight-word">Sérénité</div>
-          <div class="highlight-sub">Jardin de 4 hectares</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -634,14 +627,16 @@
       <h2>Un cadre d'exception pour vos événements.</h2>
     </div>
     <div class="deepdive-grid reveal">
-      <div class="deepdive-media" style="background-image:linear-gradient(160deg, #2a5b58, #b9924f 130%);">
-        <span class="placeholder-tag">Photo de la salle à venir</span>
+      <div class="deepdive-media" id="seminaires-media" style="background-image:linear-gradient(160deg, #2a5b58, #b9924f 130%);">
+        <span class="placeholder-tag" id="seminaires-placeholder">Photo de la salle à venir</span>
       </div>
       <div class="deepdive-text">
-        <h3>Une salle polyvalente pensée pour marquer les esprits</h3>
-        <p>Au cœur de la nouvelle bâtisse, notre salle polyvalente accueille vos événements dans un cadre à la fois spacieux et chaleureux — à deux pas du jardin exotique et de l'océan.</p>
-        <p>Séminaires d'entreprise, ateliers de formation, colonies de vacances, mariages et cérémonies : l'espace s'adapte à vos besoins, avec la possibilité d'organiser la restauration et l'hébergement de vos invités sur place.</p>
-        <p>Contactez-nous pour discuter de votre événement et recevoir un devis personnalisé.</p>
+        <h3 id="seminaires-titre">Une salle polyvalente pensée pour marquer les esprits</h3>
+        <div id="seminaires-texte">
+          <p>Au cœur de la nouvelle bâtisse, notre salle polyvalente accueille vos événements dans un cadre à la fois spacieux et chaleureux — à deux pas du jardin exotique et de l'océan.</p>
+          <p>Séminaires d'entreprise, ateliers de formation, colonies de vacances, mariages et cérémonies : l'espace s'adapte à vos besoins, avec la possibilité d'organiser la restauration et l'hébergement de vos invités sur place.</p>
+          <p>Contactez-nous pour discuter de votre événement et recevoir un devis personnalisé.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -655,16 +650,18 @@
       <h2>Entre piscine et plage.</h2>
     </div>
     <div class="deepdive-grid reverse reveal">
-      <div class="deepdive-media" style="background-image:linear-gradient(160deg, #b9924f, #1e4547 130%);">
-        <span class="placeholder-tag">Photo du restaurant à venir</span>
+      <div class="deepdive-media" id="restaurants-media" style="background-image:linear-gradient(160deg, #b9924f, #1e4547 130%);">
+        <span class="placeholder-tag" id="restaurants-placeholder">Photo du restaurant à venir</span>
       </div>
       <div class="deepdive-text">
-        <h3>Une table posée entre la piscine et la plage</h3>
-        <p>Notre restaurant vous accueille pour des repas copieux à toute heure, avec vue sur le jardin exotique — à quelques pas de la piscine à débordement et de l'accès direct à la plage.</p>
-        <p>En soirée, nos bars prennent le relais pour un moment de détente, entre amis ou en famille.</p>
+        <h3 id="restaurants-titre">Une table posée entre la piscine et la plage</h3>
+        <div id="restaurants-texte">
+          <p>Notre restaurant vous accueille pour des repas copieux à toute heure, avec vue sur le jardin exotique — à quelques pas de la piscine à débordement et de l'accès direct à la plage.</p>
+          <p>En soirée, nos bars prennent le relais pour un moment de détente, entre amis ou en famille.</p>
+        </div>
         <div class="deepdive-bars">
           <div class="lab">Nos bars</div>
-          <ul>
+          <ul id="restaurants-bars">
             <li>[Nom du bar — à compléter]</li>
             <li>[Nom du bar — à compléter]</li>
           </ul>
@@ -716,13 +713,13 @@
       <h2>Nos activités &amp; Team-building.</h2>
     </div>
     <div class="activites-grid">
-      <div class="activites-intro reveal">
+      <div class="activites-intro reveal" id="activites-texte">
         <p><strong>Renforcez votre équipe avec nos activités.</strong> Unissez vos collaborateurs et créez des liens solides.</p>
         <p>Nos activités de Team-Building offrent des expériences uniques pour renforcer la cohésion d'équipe, favoriser la communication et stimuler la collaboration au sein de votre structure. Des défis passionnants, des jeux interactifs et des activités divertissantes sont soigneusement conçus pour répondre aux besoins de votre entreprise.</p>
         <p>Que vous souhaitiez motiver votre équipe, améliorer l'esprit d'équipe ou encourager la créativité, nos programmes de Team Building sont conçus pour vous aider à atteindre vos objectifs. Offrez à votre équipe une expérience mémorable qui favorisera la collaboration et la synergie entre les membres.</p>
       </div>
       <div class="reveal">
-        <ul class="activites-list">
+        <ul class="activites-list" id="activites-liste">
           <li>Jeux « Langua burii »</li>
           <li>Match de foot</li>
           <li>Lutte traditionnelle</li>
@@ -1133,6 +1130,97 @@
           document.getElementById('marquee-section').style.display = '';
         } else {
           marqueeTrack.closest('.photo-marquee-section').style.display = 'none';
+        }
+      }
+
+      // Images défilantes dans les 3 cartes du hero (Évasion / Confort / Sérénité)
+      const heroCards = document.querySelectorAll('#hero-highlights-grid .highlight-card');
+      if (heroCards.length) {
+        const fallbackGrad = 'linear-gradient(160deg, #1e4547, #8fb3ae 65%, #d9b877 130%)';
+        let heroPool = galerieItems.map(g => g.image).filter(Boolean);
+        if (!heroPool.length) heroPool = [];
+        // Mélange aléatoire (Fisher-Yates)
+        for (let i = heroPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [heroPool[i], heroPool[j]] = [heroPool[j], heroPool[i]];
+        }
+        // Répartit les photos entre les 3 cartes (une image différente par carte à chaque tour)
+        const queues = [[], [], []];
+        if (heroPool.length) {
+          let ext = [];
+          while (ext.length < 9) { ext = ext.concat(heroPool); }
+          ext.forEach((src, i) => queues[i % 3].push(src));
+        }
+        heroCards.forEach((card, i) => {
+          const bg = card.querySelector('.hl-bg');
+          const queue = queues[i].length ? queues[i] : [fallbackGrad];
+          let idx = 0;
+          const applyFrame = (val) => {
+            const isUrl = val && !val.startsWith('linear-gradient');
+            bg.style.backgroundImage = isUrl ? `url('${val}')` : val;
+          };
+          applyFrame(queue[0]);
+          bg.classList.add('active');
+          if (queue.length > 1) {
+            setInterval(() => {
+              bg.classList.remove('active');
+              setTimeout(() => {
+                idx = (idx + 1) % queue.length;
+                applyFrame(queue[idx]);
+                bg.classList.add('active');
+              }, 1100);
+            }, 4600 + i * 350);
+          }
+        });
+      }
+      // Mots des 3 cartes du hero
+      if (Array.isArray(data.highlights)) {
+        data.highlights.forEach((h, i) => {
+          const w = document.getElementById(`hl-word-${i+1}`);
+          const s = document.getElementById(`hl-sub-${i+1}`);
+          if (w && h.mot) w.textContent = h.mot;
+          if (s && h.sous_titre) s.textContent = h.sous_titre;
+        });
+      }
+
+      // Séminaires & banquets
+      const renderParagraphs = (el, text) => {
+        if (!el || !text) return;
+        el.innerHTML = text.split(/\n\s*\n/).map(p => `<p>${p.trim()}</p>`).join('');
+      };
+      if (data.seminaires) {
+        const sTitre = document.getElementById('seminaires-titre');
+        if (sTitre && data.seminaires.titre) sTitre.textContent = data.seminaires.titre;
+        renderParagraphs(document.getElementById('seminaires-texte'), data.seminaires.texte);
+        if (data.seminaires.image) {
+          const media = document.getElementById('seminaires-media');
+          media.style.backgroundImage = `url('${data.seminaires.image}')`;
+          const tag = document.getElementById('seminaires-placeholder');
+          if (tag) tag.style.display = 'none';
+        }
+      }
+
+      // Restaurants
+      if (data.restaurants) {
+        const rTitre = document.getElementById('restaurants-titre');
+        if (rTitre && data.restaurants.titre) rTitre.textContent = data.restaurants.titre;
+        renderParagraphs(document.getElementById('restaurants-texte'), data.restaurants.texte);
+        if (data.restaurants.image) {
+          const media = document.getElementById('restaurants-media');
+          media.style.backgroundImage = `url('${data.restaurants.image}')`;
+          const tag = document.getElementById('restaurants-placeholder');
+          if (tag) tag.style.display = 'none';
+        }
+        if (Array.isArray(data.restaurants.bars) && data.restaurants.bars.length) {
+          document.getElementById('restaurants-bars').innerHTML = data.restaurants.bars.map(b => `<li>${b}</li>`).join('');
+        }
+      }
+
+      // Activités
+      if (data.activites) {
+        renderParagraphs(document.getElementById('activites-texte'), data.activites.texte);
+        if (Array.isArray(data.activites.liste) && data.activites.liste.length) {
+          document.getElementById('activites-liste').innerHTML = data.activites.liste.map(a => `<li>${a}</li>`).join('');
         }
       }
 
