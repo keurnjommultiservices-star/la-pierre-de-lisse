@@ -1169,53 +1169,20 @@
         }
       }
 
-      // Images défilantes dans les 3 cartes du hero (Évasion / Confort / Sérénité)
-      const heroCards = document.querySelectorAll('#hero-highlights-grid .highlight-card');
-      if (heroCards.length) {
-        const fallbackGrad = 'linear-gradient(160deg, #1e4547, #8fb3ae 65%, #d9b877 130%)';
-        let heroPool = galerieItems.map(g => g.image).filter(Boolean);
-        if (!heroPool.length) heroPool = [];
-        // Mélange aléatoire (Fisher-Yates)
-        for (let i = heroPool.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [heroPool[i], heroPool[j]] = [heroPool[j], heroPool[i]];
-        }
-        // Répartit les photos entre les 3 cartes (une image différente par carte à chaque tour)
-        const queues = [[], [], []];
-        if (heroPool.length) {
-          let ext = [];
-          while (ext.length < 9) { ext = ext.concat(heroPool); }
-          ext.forEach((src, i) => queues[i % 3].push(src));
-        }
-        heroCards.forEach((card, i) => {
-          const bg = card.querySelector('.hl-bg');
-          const queue = queues[i].length ? queues[i] : [fallbackGrad];
-          let idx = 0;
-          const applyFrame = (val) => {
-            const isUrl = val && !val.startsWith('linear-gradient');
-            bg.style.backgroundImage = isUrl ? `url('${val}')` : val;
-          };
-          applyFrame(queue[0]);
-          bg.classList.add('active');
-          if (queue.length > 1) {
-            setInterval(() => {
-              bg.classList.remove('active');
-              setTimeout(() => {
-                idx = (idx + 1) % queue.length;
-                applyFrame(queue[idx]);
-                bg.classList.add('active');
-              }, 1100);
-            }, 4600 + i * 350);
-          }
-        });
-      }
-      // Mots des 3 cartes du hero
+      // Photos fixes des 3 cartes du hero (Évasion / Confort / Sérénité) + leurs mots
       if (Array.isArray(data.highlights)) {
+        const fallbackGrad = 'linear-gradient(160deg, #1e4547, #8fb3ae 65%, #d9b877 130%)';
         data.highlights.forEach((h, i) => {
           const w = document.getElementById(`hl-word-${i+1}`);
           const s = document.getElementById(`hl-sub-${i+1}`);
           if (w && h.mot) w.textContent = h.mot;
           if (s && h.sous_titre) s.textContent = h.sous_titre;
+          const card = document.querySelectorAll('#hero-highlights-grid .highlight-card')[i];
+          const bg = card && card.querySelector('.hl-bg');
+          if (bg) {
+            bg.style.backgroundImage = h.image ? `url('${h.image}')` : fallbackGrad;
+            bg.classList.add('active');
+          }
         });
       }
 
